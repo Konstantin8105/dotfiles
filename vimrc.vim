@@ -356,7 +356,7 @@ endif
 :set smartindent
 " --------------------------
 " Start GUI by default
-:gui
+":gui
 
 
 
