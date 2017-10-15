@@ -274,6 +274,9 @@ function! s:build_go_files()
   endif
 endfunction
 
+" Gometalinter timeout
+let g:go_metalinter_deadline = "20s"
+
 " ===================================================== "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
