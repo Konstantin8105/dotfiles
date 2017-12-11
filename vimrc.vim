@@ -15,7 +15,7 @@ if has("unix")
   " do stuff under linux and "
   "
 elseif has("win32")
- 	source $VIMRUNTIME/vimrc_example.vim
+	source $VIMRUNTIME/vimrc_example.vim
 	source $VIMRUNTIME/mswin.vim
 	behave mswin
 endif
@@ -318,7 +318,8 @@ nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 " Fonts
 if has("unix")
-	set guifont=Go\ Mono\ 9
+	set guifont=Go\ Mono\ 10
+"	set guifont=Go\ Mono\ 9
 "	set guifont=Go\ Mono\ Bold\ 9
 elseif has("win32")
 	set guifont=Go_Mono:h9:cDEFAULT
@@ -380,7 +381,7 @@ endif
 
 set shiftwidth=4	" indenting is 4 spaces
 set tabstop=4		" tabs are at proper location
-set laststatus=2 	" to display the status line always
+set laststatus=2	" to display the status line always
 
 " --------------------------
 " Highlight Line and Column in Vim
