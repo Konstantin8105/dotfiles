@@ -2,9 +2,7 @@
 
 echo -e "Run radio"
 echo -e "Take radio stations from https://www.xatworld.com/radio-search"
-echo -e "1. Drum and Bass"
-echo -e "2. Drum and Bass"
-echo -e "3. Dubstep"
+echo -e "Choose from 1 to 8"
 
 if [ "$1" = "1" ]
 then
