@@ -138,7 +138,10 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
-set number                      " Show line numbers
+
+""" Like I understood - no need
+"set number                      " Show line numbers
+
 set showcmd                     " Show me what I'm typing
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
@@ -357,7 +360,7 @@ endif
 " --------------------------
 " Left numbering of lines
 ":set relativenumber
-:set number
+":set number
 " --------------------------
 " Smart indentation
 :set smartindent
@@ -388,8 +391,8 @@ set laststatus=2	" to display the status line always
 
 " --------------------------
 " Highlight Line and Column in Vim
-:set cursorline		"# highlight current line
-":set cursorcolumn	"# highlight current column
+:set cursorline		" # highlight current line
+":set cursorcolumn	" # highlight current column
 :set colorcolumn=80	" vertical column
 " --------------------------
 
