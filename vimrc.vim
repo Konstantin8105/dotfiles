@@ -481,3 +481,7 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
+
+" Let`s create a big memory for vim
+" Max 2000000
+:set maxmempattern=100000 " KBytes
