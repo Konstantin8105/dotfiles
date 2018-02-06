@@ -485,3 +485,7 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " Let`s create a big memory for vim
 " Max 2000000
 :set maxmempattern=100000 " KBytes
+
+" Create font bold for everythink
+:highlight MyGroup gui=bold
+:match MyGroup /./
