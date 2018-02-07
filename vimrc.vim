@@ -486,6 +486,9 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " Max 2000000
 :set maxmempattern=100000 " KBytes
 
+" 
+" Not good for seaching
+"
 " Create font bold for everythink
-:highlight MyGroup gui=bold
-:match MyGroup /./
+" :highlight MyGroup gui=bold
+" :match MyGroup /./
