@@ -323,7 +323,7 @@ nmap <C-F1> :NERDTreeToggle<CR>
 if has("unix")
 	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 9
-"	set guifont=Go\ Mono\ Bold\ 9
+"	set guifont=Go\ Mono\ Bold\ 10
 
 " Try to use Pixel Font
 "	set guifont=ProggyCleanTT\ 12
@@ -492,3 +492,11 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " Create font bold for everythink
 " :highlight MyGroup gui=bold
 " :match MyGroup /./
+"
+
+" Switch off colors
+" :syntax off
+" :syntax clear
+" :syntax region Comment  start="/\*"  end="\*/"
+" :syntax region Comment  start="//"   end="$"
+" :syntax region Operator start="\"" skip="\\\""  end="\""
