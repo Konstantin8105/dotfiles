@@ -495,8 +495,8 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 "
 
 " Switch off colors
-" :syntax off
-" :syntax clear
-" :syntax region Comment  start="/\*"  end="\*/"
-" :syntax region Comment  start="//"   end="$"
-" :syntax region Operator start="\"" skip="\\\""  end="\""
+:syntax off
+:syntax clear
+:syntax region Comment  start="/\*"  end="\*/"
+:syntax region Comment  start="//"   end="$"
+:syntax region Operator start="\"" skip="\\\""  end="\""
