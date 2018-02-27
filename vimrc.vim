@@ -33,6 +33,12 @@ elseif has("win32")
 endif
 
 
+" ===================================================== "
+syntax off
+syntax enable
+hi clear
+colorscheme gomin
+" ===================================================== "
 
 
 call vundle#begin()
@@ -167,12 +173,12 @@ if has('unnamedplus')
   set clipboard^=unnamedplus
 endif
 
-" Colorscheme
-syntax enable
-set t_Co=256
-" let g:rehash256 = 1
-let g:molokai_original = 1
-colorscheme molokai
+" " Colorscheme
+" syntax enable
+" set t_Co=256
+" " let g:rehash256 = 1
+" let g:molokai_original = 1
+" colorscheme molokai
 
 """"""""""""""""""""""
 "      Mappings      "
@@ -215,12 +221,12 @@ let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gosimple', 'misspell']
 
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_generate_tags = 1
 
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
@@ -321,9 +327,9 @@ nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 " Fonts
 if has("unix")
-	set guifont=Go\ Mono\ 10
+"	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 9
-"	set guifont=Go\ Mono\ Bold\ 10
+	set guifont=Go\ Mono\ Bold\ 10
 
 " Try to use Pixel Font
 "	set guifont=ProggyCleanTT\ 12
@@ -334,7 +340,7 @@ endif
 
 " --------------------------
 " Enable syntax highlighting
-:syntax on
+" :syntax on
 " --------------------------
 
 
@@ -412,11 +418,6 @@ set laststatus=2	" to display the status line always
 :set showmode
 " --------------------------
 
-" --------------------------
-" Yellow vertical borders
-:set fillchars+=stlnc:-,vert:\|
-:hi vertsplit  guibg=yellow ctermfg=8 guifg=black ctermbg=15
-" --------------------------
 
 
 " --------------------------
@@ -444,9 +445,6 @@ set statusline+=\ Buf:%n                         " Buffer number
 "set statusline+=\ [%b][0x%B]\                   " ASCII and byte code under cursor
 " --------------------------
 
-" ---- Cursor color ----
-highlight Cursor guifg=black guibg=Grey
-highlight iCursor guifg=white guibg=Red
 "Purple
 set guicursor=n-v-c:ver50-Cursor
 set guicursor+=i:ver50-iCursor
