@@ -38,6 +38,21 @@ syntax off
 syntax enable
 hi clear
 colorscheme gomin
+
+" ==== Cursor color ====
+highlight  Cursor guifg=black guibg=Grey
+highlight iCursor guifg=white guibg=Red
+
+" ==== Yellow vertical borders ====
+:set fillchars+=stlnc:-,vert:\|
+:hi vertsplit  guibg=yellow ctermfg=8 guifg=black ctermbg=15
+
+" ==== highlight column 80 ====
+highlight OverLength guibg=red
+match OverLength /\%81v.\+/
+
+highlight ColorColumn ctermbg=gray
+set colorcolumn=80
 " ===================================================== "
 
 
@@ -366,7 +381,7 @@ endif
 " --------------------------
 " Left numbering of lines
 ":set relativenumber
-":set number
+:set number
 " --------------------------
 " Smart indentation
 :set smartindent
@@ -398,7 +413,7 @@ set laststatus=2	" to display the status line always
 " --------------------------
 " Highlight Line and Column in Vim
 :set cursorline		" # highlight current line
-":set cursorcolumn	" # highlight current column
+:set cursorcolumn	" # highlight current column
 :set colorcolumn=80	" vertical column
 " --------------------------
 
