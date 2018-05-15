@@ -350,7 +350,7 @@ if has("unix")
 " Try to use Pixel Font
 "	set guifont=ProggyCleanTT\ 12
 elseif has("win32")
-	set guifont=Go_Mono:h9:cDEFAULT
+	set guifont=Go_Mono:h11:b
 endif
 " --------------------------
 
