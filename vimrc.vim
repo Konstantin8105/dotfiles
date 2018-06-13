@@ -48,8 +48,8 @@ highlight iCursor guifg=white guibg=Red
 :hi vertsplit  guibg=yellow ctermfg=8 guifg=black ctermbg=15
 
 " ==== highlight column 80 ====
-highlight OverLength guibg=red
-match OverLength /\%81v.\+/
+" highlight OverLength guibg=red
+" match OverLength /\%81v.\+/
 
 highlight ColorColumn ctermbg=gray
 set colorcolumn=80
@@ -73,22 +73,22 @@ let g:vim_markdown_folding_disabled = 1
 
 " ===================================================== "
 " == Javascript 
-Plugin 'pangloss/vim-javascript'
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "🞅"
-let g:javascript_conceal_underscore_arrow_function = "🞅"
+" Plugin 'pangloss/vim-javascript'
+" let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_ngdoc = 1
+" let g:javascript_plugin_flow = 1
+" let g:javascript_conceal_function             = "ƒ"
+" let g:javascript_conceal_null                 = "ø"
+" let g:javascript_conceal_this                 = "@"
+" let g:javascript_conceal_return               = "⇚"
+" let g:javascript_conceal_undefined            = "¿"
+" let g:javascript_conceal_NaN                  = "ℕ"
+" let g:javascript_conceal_prototype            = "¶"
+" let g:javascript_conceal_static               = "•"
+" let g:javascript_conceal_super                = "Ω"
+" let g:javascript_conceal_arrow_function       = "⇒"
+" let g:javascript_conceal_noarg_arrow_function = "🞅"
+" let g:javascript_conceal_underscore_arrow_function = "🞅"
 "set foldmethod=syntax
 
 
@@ -345,7 +345,6 @@ if has("unix")
 "	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 9
 	set guifont=Go\ Mono\ Bold\ 10
-
 " Try to use Pixel Font
 "	set guifont=ProggyCleanTT\ 12
 elseif has("win32")
