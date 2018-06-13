@@ -48,6 +48,7 @@ highlight iCursor guifg=white guibg=Red
 :hi vertsplit  guibg=yellow ctermfg=8 guifg=black ctermbg=15
 
 " ==== highlight column 80 ====
+" NO NEED UNCOMMENT FOR GOOD LOOK
 " highlight OverLength guibg=red
 " match OverLength /\%81v.\+/
 
