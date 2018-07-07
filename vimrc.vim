@@ -95,10 +95,10 @@ let g:vim_markdown_folding_disabled = 1
 
 " ===================================================== "
 " NERDTree
-" Plugin 'scrooloose/nerdtree'
-" let g:NERDTreeHighlightCursorline=1
-" let g:NERDTreeDirArrowExpandable = '+'
-" let g:NERDTreeDirArrowCollapsible = '|'
+Plugin 'scrooloose/nerdtree'
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '|'
 
 " ===================================================== "
 " Tagbar
@@ -321,16 +321,16 @@ filetype plugin indent on    " required
 " --------------------------
 
 " --------------------------
-" " "NERDTREE settings"
-" if has("unix")
-"   autocmd vimenter * NERDTree $GOPATH
-"   " $HOME
-"   " /home/konstantin/Documents/SVNserver/Secret
-" elseif has("win32")
-"   autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
-" endif
-" :let NERDTreeShowBookmarks=1
-" nmap <C-F1> :NERDTreeToggle<CR>
+" "NERDTREE settings"
+if has("unix")
+  autocmd vimenter * NERDTree $GOPATH
+  " $HOME
+  " /home/konstantin/Documents/SVNserver/Secret
+elseif has("win32")
+  autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
+endif
+:let NERDTreeShowBookmarks=1
+nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 
 " --------------------------
