@@ -35,7 +35,7 @@ endif
 
 " ===================================================== "
 syntax off
-syntax enable
+" syntax enable
 hi clear
 colorscheme gomin
 
