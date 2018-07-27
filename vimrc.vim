@@ -513,3 +513,11 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " :syntax region Comment  start="/\*"  end="\*/"
 " :syntax region Comment  start="//"   end="$"
 " :syntax region Operator start="\"" skip="\\\""  end="\""
+"
+
+
+" Highlight comments
+:highlight mini  guibg=LightGreen
+:highlight mini2 guibg=Yellow
+:match mini   /\/\/.*/
+:2mat  mini2  /\".*\"\|\`.*\`\|\'.*\'/
