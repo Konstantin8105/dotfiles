@@ -517,7 +517,7 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 
 
 " Highlight comments
-:highlight mini  guibg=LightGreen
-:highlight mini2 guibg=Yellow
-:match  mini    /\".*\"\|\`.*\`\|\'.*\'/
-:2mat   mini2   /\/\/.*/
+" :highlight mini  guibg=LightGreen
+" :highlight mini2 guibg=Yellow
+" :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
+" :2mat   mini2   /\/\/.*/
