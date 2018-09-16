@@ -236,6 +236,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " vim-go
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
+let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gosimple', 'misspell']
 
@@ -389,7 +390,7 @@ endif
 :set smartindent
 " --------------------------
 " Start GUI by default
-:gui
+" :gui
 
 
 
