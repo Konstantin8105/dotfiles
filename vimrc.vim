@@ -2,7 +2,6 @@
 " INSTALLATION
 " --------------------------
 " 1. Install Vundle
-" 2. Get theme monokai
 " 3. In vim :PluginInstall
 " 4. In vim :GoInstallBinaries
 " 5. Install python 2.7 for UltiSnip
