@@ -441,30 +441,17 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " Max 2000000
 :set maxmempattern=100000 " KBytes
 
-" 
-" Not good for seaching
-"
-" Create font bold for everythink
-" :highlight MyGroup gui=bold
-" :match MyGroup /./
-"
-
 " Switch off colors
 " :syntax off
 " :syntax clear
 " :syntax region Comment  start="/\*"  end="\*/"
 " :syntax region Comment  start="//"   end="$"
 " :syntax region Operator start="\"" skip="\\\""  end="\""
-"
-
 
 " Highlight comments
 " :highlight mini  guibg=LightGreen
 " :highlight mini2 guibg=Yellow
 " :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
 " :2mat   mini2   /\/\/.*/
-"
-"
-
 
 :hi Normal ctermbg=LightYellow ctermfg=Black guifg=#424242 guibg=#FFFFD8
