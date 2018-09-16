@@ -164,13 +164,6 @@ if has('unnamedplus')
   set clipboard^=unnamedplus
 endif
 
-" " Colorscheme
-" syntax enable
-" set t_Co=256
-" " let g:rehash256 = 1
-" let g:molokai_original = 1
-" colorscheme molokai
-
 """"""""""""""""""""""
 "      Mappings      "
 """"""""""""""""""""""
