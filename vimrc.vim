@@ -11,6 +11,8 @@
 " ===================================================== "
 " Init
 
+:set t_Co=256
+
 if has("unix")
   " do stuff under linux and "
   "
@@ -32,12 +34,12 @@ elseif has("win32")
 	set rtp+=$HOME\vimfiles\bundle\Vundle.vim
 endif
 
-
 " ===================================================== "
 syntax off
 " syntax enable
 hi clear
-colorscheme gomin
+
+" colorscheme gomin
 
 " ==== Cursor color ====
 highlight  Cursor guifg=black guibg=Grey
@@ -45,15 +47,15 @@ highlight iCursor guifg=white guibg=Red
 
 " ==== Yellow vertical borders ====
 :set fillchars+=stlnc:-,vert:\|
-:hi vertsplit  guibg=yellow ctermfg=8 guifg=black ctermbg=15
+:hi vertsplit  guibg=yellow ctermfg=DarkGrey guifg=black ctermbg=White
 
 " ==== highlight column 80 ====
 " NO NEED UNCOMMENT FOR GOOD LOOK
 " highlight OverLength guibg=red
 " match OverLength /\%81v.\+/
 
-highlight ColorColumn ctermbg=gray
-set colorcolumn=80
+" highlight ColorColumn ctermbg=gray
+" set colorcolumn=80
 " ===================================================== "
 
 
@@ -412,8 +414,8 @@ set laststatus=2	" to display the status line always
 
 " --------------------------
 " Highlight Line and Column in Vim
-:set cursorline		" # highlight current line
-:set cursorcolumn	" # highlight current column
+" :set cursorline		" # highlight current line
+" :set cursorcolumn	" # highlight current column
 :set colorcolumn=80	" vertical column
 " --------------------------
 
@@ -440,9 +442,9 @@ set laststatus=2	" to display the status line always
 " The advantage of having the status line displayed always
 :set laststatus=2
 " colors for windows not on focus
-:hi statuslineNc guibg=black ctermfg=8 guifg=Yellow ctermbg=15
+:hi statuslineNc guibg=Black ctermfg=LightYellow guifg=Yellow ctermbg=Black
 " colors for windows on focus
-:hi statusline   guibg=black ctermfg=8 guifg=Green  ctermbg=15
+:hi statusline   guibg=Black ctermfg=LightGreen  guifg=LightGreen  ctermbg=Black
 " default text
 set statusline=%t                                " file name
 set statusline+=%m                               " file is modify
@@ -521,3 +523,8 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " :highlight mini2 guibg=Yellow
 " :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
 " :2mat   mini2   /\/\/.*/
+"
+"
+
+
+:hi Normal ctermbg=LightYellow ctermfg=Black guifg=#424242 guibg=#FFFFD8
