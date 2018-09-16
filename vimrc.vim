@@ -36,17 +36,17 @@ endif
 " ===================================================== "
 syntax off
 " syntax enable
-hi clear
+:hi clear
 
 " colorscheme gomin
 
 " ==== Cursor color ====
-highlight  Cursor guifg=black guibg=Grey
-highlight iCursor guifg=white guibg=Red
+:hi  Cursor guifg=Black guibg=Blue ctermbg=Blue ctermfg=Black
+:hi iCursor guifg=White guibg=Red  ctermbg=Red  ctermfg=Black
 
 " ==== Yellow vertical borders ====
 :set fillchars+=stlnc:-,vert:\|
-:hi vertsplit  guibg=yellow ctermfg=DarkGrey guifg=black ctermbg=White
+:hi vertsplit  guibg=Yellow ctermfg=DarkGrey guifg=DarkGrey ctermbg=Yellow
 
 " ==== highlight column 80 ====
 " NO NEED UNCOMMENT FOR GOOD LOOK
@@ -341,9 +341,9 @@ set laststatus=2	" to display the status line always
 " The advantage of having the status line displayed always
 :set laststatus=2
 " colors for windows not on focus
-:hi statuslineNc guibg=Black ctermfg=LightYellow guifg=Yellow ctermbg=Black
+:hi statuslineNc guibg=Black ctermfg=LightYellow guifg=Yellow     ctermbg=Black
 " colors for windows on focus
-:hi statusline   guibg=Black ctermfg=LightGreen  guifg=LightGreen  ctermbg=Black
+:hi statusline   guibg=Black ctermfg=LightGreen  guifg=LightGreen ctermbg=Black
 " default text
 set statusline=%t                                " file name
 set statusline+=%m                               " file is modify
