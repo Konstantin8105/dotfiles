@@ -217,46 +217,6 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gosimple', 'misspel
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
-
-" augroup go
-"   autocmd!
-"
-"   " Show by default 4 spaces for a tab
-"   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-"
-"   " :GoBuild and :GoTestCompile
-"   autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-"
-"   " :GoTest
-"   autocmd FileType go nmap <leader>t  <Plug>(go-test)
-"
-"   " :GoRun
-"   autocmd FileType go nmap <leader>r  <Plug>(go-run)
-"
-"   " :GoDoc
-"   autocmd FileType go nmap <Leader>d <Plug>(go-doc)
-"
-"   " :GoCoverageToggle
-"   autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-"
-"   " :GoInfo
-"   autocmd FileType go nmap <Leader>i <Plug>(go-info)
-"
-"   " :GoMetaLinter
-"   autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
-"
-"   " :GoDef but opens in a vertical split
-"   autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-"   " :GoDef but opens in a horizontal split
-"   autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
-"
-"   " :GoAlternate  commands :A, :AV, :AS and :AT
-"   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-"   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-"   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-"   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-" augroup END
-
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
 function! s:build_go_files()
