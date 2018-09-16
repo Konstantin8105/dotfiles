@@ -101,12 +101,6 @@ Plugin 'tomtom/tcomment_vim'
 " gc  - comment/uncomment in visual mode
 
 " ===================================================== "
-" Emmet
-"  Plugin 'mattn/emmet-vim'
-"  let g:user_emmet_install_global = 0
-"  autocmd FileType html,css EmmetInstall
-
-" ===================================================== "
 " VIM-GO
 Plugin 'fatih/vim-go'
 " Plugin 'fatih/molokai'
