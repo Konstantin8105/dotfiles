@@ -346,21 +346,6 @@ endif
 " Start GUI by default
 " :gui
 
-
-
-
-
-" --------------------------
-" Tab`s
-"nnoremap tn :tabnew<Space>
-"
-"nnoremap tk :tabnext<CR>
-"nnoremap tj :tabprev<CR>
-"
-"nnoremap th :tabfirst<CR>
-"nnoremap tk :tablast<CR>
-" --------------------------
-
 " --------------------------
 
 set shiftwidth=4	" indenting is 4 spaces
