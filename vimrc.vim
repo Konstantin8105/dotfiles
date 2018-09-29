@@ -114,7 +114,7 @@ autocmd BufEnter * silent! lcd %:p:h
 """""""""""""""""""""
 
 " vim-go
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_version_warning = 0
 let g:go_list_type = "quickfix"
@@ -408,4 +408,4 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
 " :2mat   mini2   /\/\/.*/
 
-:hi Normal ctermbg=LightYellow ctermfg=Black guifg=#424242 guibg=#FFFFD8
+:hi Normal ctermbg=LightYellow ctermfg=Black guifg=Black guibg=#FFFF71
