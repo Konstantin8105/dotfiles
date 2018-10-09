@@ -37,6 +37,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
 
+" Ark vim
+Plugin 'mileszs/ack.vim'
+
 " Vim Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
