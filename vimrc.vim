@@ -259,7 +259,7 @@ nmap <C-F1> :NERDTreeToggle<CR>
 if has("unix")
 "	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 9
-	set guifont=Go\ Mono\ Bold\ 10
+	set guifont=Go\ Mono\ Bold\ 11
 " Try to use Pixel Font
 "	set guifont=ProggyCleanTT\ 12
 elseif has("win32")
