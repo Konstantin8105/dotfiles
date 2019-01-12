@@ -421,11 +421,15 @@ endif
 " :syntax region Comment  start="//"   end="$"
 " :syntax region Operator start="\"" skip="\\\""  end="\""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
-" :highlight mini  guibg=LightGreen
-" :highlight mini2 guibg=Yellow
-" :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
-" :2mat   mini2   /\/\/.*/
+:highlight MyParenColor      guibg=White
+:match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
+:highlight MyCommentsColor   guibg=Yellow
+:2mat      MyCommentsColor   /\/\/.*/
+:highlight ErrorsColor       guibg=Red
+:2mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw settings
