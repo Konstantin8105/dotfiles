@@ -143,8 +143,8 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gosimple', 'misspel
 " let g:go_highlight_generate_tags = 1
 
 " Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+" nmap <C-g> :GoDeclsDir<cr>
+" imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
