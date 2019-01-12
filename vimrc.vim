@@ -12,11 +12,13 @@
 
 :set t_Co=256
 
-if has("win32")
-	source $VIMRUNTIME/vimrc_example.vim
-	source $VIMRUNTIME/mswin.vim
-	behave mswin
-endif
+
+" I want to avoid specific worling on Windows OS
+" if has("win32")
+" 	source $VIMRUNTIME/vimrc_example.vim
+" 	source $VIMRUNTIME/mswin.vim
+" 	behave mswin
+" endif
 
 " ===================================================== "
 " set the runtime path to include Vundle and initialize
@@ -41,15 +43,21 @@ let g:neocomplete#enable_at_startup = 1
 Plugin 'mileszs/ack.vim'
 
 " Vim Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled = 1
+"
+" I haven`t syntax highlight, so that is not need
+"
+" Plugin 'godlygeek/tabular'
+" Plugin 'plasticboy/vim-markdown'
+" let g:vim_markdown_folding_disabled = 1
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
-let g:NERDTreeHighlightCursorline=1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '|'
+"
+" I want to use netrw
+"
+" Plugin 'scrooloose/nerdtree'
+" let g:NERDTreeHighlightCursorline=1
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '|'
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
@@ -73,7 +81,11 @@ Plugin 'fatih/vim-go'
 " Plugin 'fatih/molokai'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'ctrlpvim/ctrlp.vim'
+
+"
+" I don`t use fuzzy search
+"
+" Plugin 'ctrlpvim/ctrlp.vim'
 
 
 " Snippets are separated from the engine. Add this if you want them:
@@ -236,15 +248,15 @@ syntax off
 
 " --------------------------
 " "NERDTREE settings"
-if has("unix")
-  autocmd vimenter * NERDTree $GOPATH
-  " $HOME
-  " /home/konstantin/Documents/SVNserver/Secret
-elseif has("win32")
-  autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
-endif
-:let NERDTreeShowBookmarks=1
-nmap <C-F1> :NERDTreeToggle<CR>
+" if has("unix")
+"   autocmd vimenter * NERDTree $GOPATH
+"   " $HOME
+"   " /home/konstantin/Documents/SVNserver/Secret
+" elseif has("win32")
+"   autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
+" endif
+" :let NERDTreeShowBookmarks=1
+" nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 
 " --------------------------
@@ -289,8 +301,11 @@ endif
 
 " --------------------------
 " To save, press ctrl-s.
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
+"
+" I don`t use Windows OS specific
+"
+" :nmap <c-s> :w<CR>
+" :imap <c-s> <Esc>:w<CR>a
 " --------------------------
 
 " --------------------------
@@ -386,7 +401,7 @@ elseif has("win32")
 endif
 
 "STAAD syntax
-autocmd BufRead,BufNewFile *.std set filetype=std
+" autocmd BufRead,BufNewFile *.std set filetype=std
 
 
 " Hide scrollbar
@@ -411,5 +426,27 @@ autocmd BufRead,BufNewFile *.std set filetype=std
 " :highlight mini2 guibg=Yellow
 " :match  mini    /\".*\"\|\`.*\`\|\'.*\'/
 " :2mat   mini2   /\/\/.*/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw settings
+let g:netrw_banner = 0        " removing the banner
+let g:netrw_liststyle = 3     " tree style
+let g:netrw_browse_split = 4  " open in previous window
+let g:netrw_altv = 1
+let g:netrw_winsize = 30      " set the width of the directory explorer
+nmap <C-F1> :Lexplore<CR>     " open explorer on left side
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+" 
+" qb        - show bookmarks and history
+" mb        - add to bookmark
+" 1gb       - 1 bookmark
+" 2gb       - 2 bookmark
+" :Lexplore - open explorer on left side
+" :Ntree    - use selected folder as present
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 :hi Normal ctermbg=LightYellow ctermfg=Black guifg=Black guibg=#FFFF71
