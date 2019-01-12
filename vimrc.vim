@@ -427,8 +427,11 @@ endif
 " :match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
 " :highlight MyCommentsColor   guibg=Orange
 " :2mat      MyCommentsColor   /\/\/.*/
-:highlight ErrorsColor       guibg=Red
-:3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
+" :highlight ErrorsColor       guibg=Red
+" :3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
+"
+" I switch off because it is have a bug
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -437,7 +440,7 @@ let g:netrw_banner = 0        " removing the banner
 let g:netrw_liststyle = 3     " tree style
 let g:netrw_browse_split = 4  " open in previous window
 let g:netrw_altv = 1
-let g:netrw_winsize = 30      " set the width of the directory explorer
+let g:netrw_winsize = -25      " set the width of the directory explorer
 nmap <C-F1> :Lexplore<CR>     " open explorer on left side
 augroup ProjectDrawer
   autocmd!
