@@ -423,12 +423,12 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
-:highlight MyParenColor      guibg=White
-:match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
-:highlight MyCommentsColor   guibg=Yellow
-:2mat      MyCommentsColor   /\/\/.*/
+" :highlight MyParenColor      guibg=White
+" :match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
+" :highlight MyCommentsColor   guibg=Orange
+" :2mat      MyCommentsColor   /\/\/.*/
 :highlight ErrorsColor       guibg=Red
-:2mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
+:3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
