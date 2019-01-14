@@ -54,10 +54,10 @@ Plugin 'mileszs/ack.vim'
 "
 " I want to use netrw
 "
-" Plugin 'scrooloose/nerdtree'
-" let g:NERDTreeHighlightCursorline=1
-" let g:NERDTreeDirArrowExpandable = '+'
-" let g:NERDTreeDirArrowCollapsible = '|'
+Plugin 'scrooloose/nerdtree'
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '|'
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
@@ -247,16 +247,16 @@ syntax off
 
 
 " --------------------------
-" "NERDTREE settings"
-" if has("unix")
-"   autocmd vimenter * NERDTree $GOPATH
-"   " $HOME
-"   " /home/konstantin/Documents/SVNserver/Secret
-" elseif has("win32")
-"   autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
-" endif
-" :let NERDTreeShowBookmarks=1
-" nmap <C-F1> :NERDTreeToggle<CR>
+" NERDTREE settings
+if has("unix")
+  autocmd vimenter * NERDTree $GOPATH
+  " $HOME
+  " /home/konstantin/Documents/SVNserver/Secret
+elseif has("win32")
+  autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
+endif
+:let NERDTreeShowBookmarks=1
+nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 
 " --------------------------
@@ -414,12 +414,14 @@ endif
 " Max 2000000
 :set maxmempattern=100000 " KBytes
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch off colors
 " :syntax off
 " :syntax clear
 " :syntax region Comment  start="/\*"  end="\*/"
 " :syntax region Comment  start="//"   end="$"
 " :syntax region Operator start="\"" skip="\\\""  end="\""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
@@ -436,16 +438,16 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw settings
-let g:netrw_banner = 0        " removing the banner
-let g:netrw_liststyle = 3     " tree style
-let g:netrw_browse_split = 4  " open in previous window
-let g:netrw_altv = 1
-let g:netrw_winsize = -25      " set the width of the directory explorer
-nmap <C-F1> :Lexplore<CR>     " open explorer on left side
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+" let g:netrw_banner = 0        " removing the banner
+" let g:netrw_liststyle = 3     " tree style
+" let g:netrw_browse_split = 4  " open in previous window
+" let g:netrw_altv = 1
+" let g:netrw_winsize = -25      " set the width of the directory explorer
+" nmap <C-F1> :Lexplore<CR>     " open explorer on left side
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 " 
 " qb        - show bookmarks and history
 " mb        - add to bookmark
