@@ -7,24 +7,11 @@
 " 5. Install python 2.7 for UltiSnip
 " ?? install go-tags"
 
-" ===================================================== "
-" Init
-
-:set t_Co=256
-
-
-" I want to avoid specific worling on Windows OS
-" if has("win32")
-" 	source $VIMRUNTIME/vimrc_example.vim
-" 	source $VIMRUNTIME/mswin.vim
-" 	behave mswin
-" endif
-
-" ===================================================== "
 " set the runtime path to include Vundle and initialize
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" ===================================================== "
 if has("unix")
 	set rtp+=~/.vim/bundle/Vundle.vim
 elseif has("win32")
@@ -32,7 +19,7 @@ elseif has("win32")
 endif
 
 call vundle#begin()
-" let Vundle manage Vundle, required
+" Vundle
 Plugin 'VundleVim/Vundle.vim'
 
 " neocomplete 
@@ -42,21 +29,10 @@ let g:neocomplete#enable_at_startup = 1
 " Ark vim
 Plugin 'mileszs/ack.vim'
 
-" Vim Markdown
-"
-" I haven`t syntax highlight, so that is not need
-"
-" Plugin 'godlygeek/tabular'
-" Plugin 'plasticboy/vim-markdown'
-" let g:vim_markdown_folding_disabled = 1
-
 " NERDTree
-"
-" I want to use netrw
-"
 Plugin 'scrooloose/nerdtree'
-let g:NERDTreeHighlightCursorline=1
-let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeHighlightCursorline =  1
+let g:NERDTreeDirArrowExpandable  = '+'
 let g:NERDTreeDirArrowCollapsible = '|'
 
 " Tagbar
@@ -76,17 +52,10 @@ Plugin 'tomtom/tcomment_vim'
 " gcc - comment/uncomment current line
 " gc  - comment/uncomment in visual mode
 
-" VIM-GO
+" Vim-Go
 Plugin 'fatih/vim-go'
-" Plugin 'fatih/molokai'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
-
-"
-" I don`t use fuzzy search
-"
-" Plugin 'ctrlpvim/ctrlp.vim'
-
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -111,12 +80,6 @@ endif
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
 
-" Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
-" quickfix window with <leader>a
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-
 " Act like D and C
 nnoremap Y y$
 
@@ -129,50 +92,19 @@ autocmd BufEnter * silent! lcd %:p:h
 """""""""""""""""""""
 
 " vim-go
-" let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_version_warning = 0
-let g:go_list_type = "quickfix"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gosimple', 'misspell']
-
-" let g:go_highlight_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_extra_types = 1
-" let g:go_highlight_generate_tags = 1
-
-" Open :GoDeclsDir with ctrl-g
-" nmap <C-g> :GoDeclsDir<cr>
-" imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
-
-" build_go_files is a custom function that builds or compiles the test file.
-" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#cmd#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-" Gometalinter timeout
-let g:go_metalinter_deadline = "20s"
+let g:go_autodetect_gopath   = 1
+let g:go_version_warning     = 0
+let g:go_list_type           = "quickfix"
+let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'gosimple', 'misspell']
+let g:go_metalinter_deadline = "20s" " Gometalinter timeout
 
 " Gocode for autocompletion
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 
 
-" ===================================================== "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" ===================================================== "
-" ===================================================== "
-" ===================================================== "
-" ===================================================== "
-" ===================================================== "
 " ===================================================== "
 
 """"""""""""""""""""""
@@ -217,7 +149,6 @@ set lazyredraw                  " Wait to redraw
 
 " ===================================================== "
 syntax off
-" syntax enable
 :hi clear
 
 " colorscheme gomin
@@ -229,21 +160,6 @@ syntax off
 " ==== Yellow vertical borders ====
 :set fillchars+=stlnc:-,vert:\|
 :hi vertsplit  guibg=Yellow ctermfg=DarkGrey guifg=DarkGrey ctermbg=Yellow
-
-" ==== highlight column 80 ====
-" NO NEED UNCOMMENT FOR GOOD LOOK
-" highlight OverLength guibg=red
-" match OverLength /\%81v.\+/
-
-" highlight ColorColumn ctermbg=gray
-" set colorcolumn=80
-" ===================================================== "
-
-
-
-
-
-
 
 
 " --------------------------
@@ -281,12 +197,6 @@ endif
 " --------------------------
 
 " --------------------------
-" Enable syntax highlighting
-" :syntax on
-" --------------------------
-
-
-" --------------------------
 " Use UTF-8.
 :set encoding=utf-8
 :set fileencoding=utf-8
@@ -298,27 +208,20 @@ endif
 :set showcmd
 " --------------------------
 
-
-" --------------------------
-" To save, press ctrl-s.
-"
-" I don`t use Windows OS specific
-"
-" :nmap <c-s> :w<CR>
-" :imap <c-s> <Esc>:w<CR>a
-" --------------------------
-
 " --------------------------
 " Left numbering of lines
 ":set relativenumber
 :set number
 " --------------------------
+
+" --------------------------
 " Smart indentation
 :set smartindent
 " --------------------------
+
+" --------------------------
 " Start GUI by default
 :gui
-
 " --------------------------
 
 set shiftwidth=4	" indenting is 4 spaces
@@ -328,8 +231,8 @@ set laststatus=2	" to display the status line always
 " --------------------------
 " Highlight Line and Column in Vim
 " :set cursorline		" # highlight current line
-" :set cursorcolumn	" # highlight current column
-:set colorcolumn=80	" vertical column
+" :set cursorcolumn     " # highlight current column
+:set colorcolumn=80     " vertical column
 " --------------------------
 
 " --------------------------
@@ -393,15 +296,12 @@ set backup
 if has("unix")
 	set backupdir=~/temp
 	set directory=~/temp
-	set undodir=~/temp
+	set undodir  =~/temp
 elseif has("win32")
 	set backupdir=c:\Temp
 	set directory=c:\Temp
-	set undodir=c:\Temp
+	set undodir  =c:\Temp
 endif
-
-"STAAD syntax
-" autocmd BufRead,BufNewFile *.std set filetype=std
 
 
 " Hide scrollbar
@@ -415,15 +315,6 @@ endif
 :set maxmempattern=100000 " KBytes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Switch off colors
-" :syntax off
-" :syntax clear
-" :syntax region Comment  start="/\*"  end="\*/"
-" :syntax region Comment  start="//"   end="$"
-" :syntax region Operator start="\"" skip="\\\""  end="\""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
 " :highlight MyParenColor      guibg=White
 " :match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
@@ -433,28 +324,6 @@ endif
 " :3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
 "
 " I switch off because it is have a bug
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" netrw settings
-" let g:netrw_banner = 0        " removing the banner
-" let g:netrw_liststyle = 3     " tree style
-" let g:netrw_browse_split = 4  " open in previous window
-" let g:netrw_altv = 1
-" let g:netrw_winsize = -25      " set the width of the directory explorer
-" nmap <C-F1> :Lexplore<CR>     " open explorer on left side
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
-" 
-" qb        - show bookmarks and history
-" mb        - add to bookmark
-" 1gb       - 1 bookmark
-" 2gb       - 2 bookmark
-" :Lexplore - open explorer on left side
-" :Ntree    - use selected folder as present
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
