@@ -4,7 +4,6 @@
 " 1. Install Vundle
 " 3. In vim :PluginInstall
 " 4. In vim :GoInstallBinaries
-" 5. Install python 2.7 for UltiSnip
 " ?? install go-tags"
 
 " set the runtime path to include Vundle and initialize
@@ -55,16 +54,6 @@ Plugin 'tomtom/tcomment_vim'
 " Vim-Go
 Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -328,3 +317,23 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 :hi Normal ctermbg=LightYellow ctermfg=Black guifg=Black guibg=#FFFF71
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Snippets
+"
+:iabbrev  func    func () {<CR>}<Esc><Up>$hhhi
+:iabbrev  fn      fmt.Println()<Esc>i
+:iabbrev  errn    if err != nil{<CR><Tab><CR>}<Esc>k
+:iabbrev  case    case <CR><Esc>k$i:<Esc>ha
+:iabbrev  switch  switch {<CR>}<Esc><Up>$hha
+:iabbrev  main    func main() {<CR><CR>}<Esc>k<Tab><Tab>i
+:iabbrev  func    func () {<CR>}<Esc>k$hhhha
+:iabbrev  defer   defer func(){<CR><Tab><CR>}()<Esc>k$i
+:iabbrev  for     for {<CR><Tab><CR>}<Esc>kk$hi
+:iabbrev  testf   func Test(t *testing.T){<CR>}<Esc>k$7bi
+:iabbrev  bench   func Benchmark(b *testing.B){<CR>}<Esc>k$7bi
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
