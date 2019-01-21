@@ -46,14 +46,14 @@ endif
 map <C-F2> :TagbarToggle<CR>
 
 " TComment
-Plugin 'tomtom/tcomment_vim'
+" Plugin 'tomtom/tcomment_vim'
 " Note: see https://github.com/tomtom/tcomment_vim
 " gcc - comment/uncomment current line
 " gc  - comment/uncomment in visual mode
 
 " Vim-Go
 Plugin 'fatih/vim-go'
-Plugin 'AndrewRadev/splitjoin.vim'
+" Plugin 'AndrewRadev/splitjoin.vim'
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -321,7 +321,17 @@ endif
 
 
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Comments
+"
+:vnoremap <silent> gc :call ToggleComment()<cr>
+:function! ToggleComment()
+        if matchstr(getline(line(".")),'^\s*\/\/.*$') == ''
+                :execute "s:^://:"
+        else
+                :execute "s:^\s*//::"
+        endif
+endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 "
@@ -333,7 +343,10 @@ endif
 :iabbrev  main    func main() {<CR><CR>}<Esc>k<Tab><Tab>i
 :iabbrev  func    func () {<CR>}<Esc>k$hhhha
 :iabbrev  defer   defer func(){<CR><Tab><CR>}()<Esc>k$i
+:iabbrev  defr    defer func(){<CR><Tab>if err := recover(); err != nil {<CR><Tab><CR>}<CR>}()<Esc>kk$i
 :iabbrev  for     for {<CR><Tab><CR>}<Esc>kk$hi
 :iabbrev  testf   func Test(t *testing.T){<CR>}<Esc>k$7bi
 :iabbrev  bench   func Benchmark(b *testing.B){<CR>}<Esc>k$7bi
+:iabbrev  cn      continue
+:iabbrev  go      go func() {<CR><Tab><CR>} ()<Esc>k$i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
