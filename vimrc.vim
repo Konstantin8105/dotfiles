@@ -324,8 +324,8 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
 "
-:nnoremap <silent> gc :call ToggleComment()<cr>
-:vnoremap <silent> gc :call ToggleComment()<cr>
+:nnoremap <silent> gc :call ToggleComment()<CR>
+:vnoremap <silent> gc :call ToggleComment()<CR>
 let s:comment_map = { 
     \   "c": '\/\/',
     \   "cpp": '\/\/',
@@ -388,4 +388,45 @@ endfunction
 :iabbrev  bench   func Benchmark(b *testing.B){<CR>}<Esc>k$7bi
 :iabbrev  cn      continue
 :iabbrev  go      go func() {<CR><Tab><CR>} ()<Esc>k$i
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Create menu
+"
+function! SimpleMenu(options)
+	let l:choice_map = {}
+	for choice in a:options
+		let l:key               = choice[0]
+		let l:choice_map[l:key] = choice[2]
+		echohl Boolean
+		echon l:key . ' '
+		echohl None
+		echon choice[1]
+		echo ''
+	endfor
+	let l:response = nr2char(getchar())
+	redraw!
+	if has_key(l:choice_map, l:response)
+		call call(l:choice_map[l:response], [])
+	endif
+endfunction
+
+function! GoVersion()
+	execute "!go version"
+endfunction
+function! GoFilelists()
+	execute "!ls -la *.go"
+endfunction
+function! SayMyName()
+	echo 'Hello, Konstantin'
+endfunction
+
+function Menu()
+	call SimpleMenu([
+		\ ['v', 'Golang version'                           , 'GoVersion'  ],
+		\ ['l', 'Golang files in present folder'           , 'GoFilelists'],
+		\ ['z', 'Say my name '                             , 'SayMyName'  ]
+	\ ])
+endfunction
+
+:nnoremap <silent> gm :call Menu()<CR>
+:vnoremap <silent> gm :call Menu()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
