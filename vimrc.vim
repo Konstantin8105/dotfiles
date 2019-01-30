@@ -84,7 +84,7 @@ autocmd BufEnter * silent! lcd %:p:h
 let g:go_autodetect_gopath   = 1
 let g:go_version_warning     = 0
 let g:go_list_type           = "quickfix"
-let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'gosimple', 'misspell']
+let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
 let g:go_metalinter_deadline = "20s" " Gometalinter timeout
 
 " Gocode for autocompletion
