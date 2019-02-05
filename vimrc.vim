@@ -181,7 +181,7 @@ if has("unix")
 "	set guifont=Go\ Mono\ Bold\ 11
 	set guifont=Fira\ Mono\ Bold\ 10
 elseif has("win32")
-	set guifont=Go_Mono:h11:b
+	set guifont=Fira_Mono_Medium:h10
 endif
 " --------------------------
 
