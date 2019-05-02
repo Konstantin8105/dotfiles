@@ -375,20 +375,8 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 "
-:iabbrev  func    func () {<CR>}<Esc><Up>$hhhi
 :iabbrev  fn      fmt.Println()<Esc>i
 :iabbrev  errn    if err != nil{<CR><Tab><CR>}<Esc>k
-:iabbrev  case    case <CR><Esc>k$i:<Esc>ha
-:iabbrev  switch  switch {<CR>}<Esc><Up>$hha
-:iabbrev  main    func main() {<CR><CR>}<Esc>k<Tab><Tab>i
-:iabbrev  func    func () {<CR>}<Esc>k$hhhha
-:iabbrev  defer   defer func(){<CR><Tab><CR>}()<Esc>k$i
-:iabbrev  defr    defer func(){<CR><Tab>if err := recover(); err != nil {<CR><Tab><CR>}<CR>}()<Esc>kk$i
-:iabbrev  for     for {<CR><Tab><CR>}<Esc>kk$hi
-:iabbrev  testf   func Test(t *testing.T){<CR>}<Esc>k$7bi
-:iabbrev  bench   func Benchmark(b *testing.B){<CR>}<Esc>k$7bi
-:iabbrev  cn      continue
-:iabbrev  go      go func() {<CR><Tab><CR>} ()<Esc>k$i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
 "
@@ -420,9 +408,26 @@ function! SayMyName()
 	echo 'Hello, Konstantin'
 endfunction
 
+function! GoMain()
+	:execute "normal ifunc main() {\n\t\n}\<Esc>kA"
+endfunction
+function! GoDeferRec()
+	:execute "normal idefer func(){\n\tif err := recover(); err != nil {\n\t\n}\n}()\<Esc>kkA"
+endfunction
+function! GoTestFunc()
+	:execute "normal ifunc Test(t *testing.T){\n\t\n}\<Esc>kA"
+endfunction
+function! GoBench()
+	:execute "normal ifunc Benchmark(b *testing.B){\n\t\n}\<Esc>kA"
+endfunction
+
 function Menu()
 	call SimpleMenu([
 		\ ['v', 'Golang version'                           , 'GoVersion'  ],
+		\ ['m', 'Go: func main'                            , 'GoMain'     ],
+		\ ['r', 'Go: defer recover'                        , 'GoDeferRec' ],
+		\ ['b', 'Go: benchmark'                            , 'GoBench'    ],
+		\ ['t', 'Go: test function'                        , 'GoTestFunc' ],
 		\ ['l', 'Golang files in present folder'           , 'GoFilelists'],
 		\ ['z', 'Say my name '                             , 'SayMyName'  ]
 	\ ])
