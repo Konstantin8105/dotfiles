@@ -4,7 +4,6 @@
 " 1. Install Vundle
 " 3. In vim :PluginInstall
 " 4. In vim :GoInstallBinaries
-" 5. Install gopll : go get -u golang.org/x/tools/cmd/gopls
 " ?? install go-tags"
 
 " set the runtime path to include Vundle and initialize
@@ -87,11 +86,10 @@ let g:go_version_warning     = 0
 let g:go_list_type           = "quickfix"
 let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
 let g:go_metalinter_deadline = "20s" " Gometalinter timeout
-let g:go_def_mode='gopls'        " Go pls server
 let g:go_info_mode = 'gocode'
 
 " Gocode for autocompletion
-" Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
+Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 
 
 " All of your Plugins must be added before the following line
