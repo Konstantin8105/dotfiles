@@ -317,7 +317,7 @@ endif
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-:hi Normal ctermbg=LightYellow ctermfg=Black guifg=Black guibg=#FFFF71
+:hi Normal ctermbg=LightGrey ctermfg=Black guifg=Black guibg=#FFFF71
 
 
 
