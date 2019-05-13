@@ -367,7 +367,8 @@ function! ToggleComment()
             execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
         else
             " Comment the line
-            execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
+            " execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
+			:execute "silent s/^/" . comment_leader . " /"
         end
     end
 endfunction
