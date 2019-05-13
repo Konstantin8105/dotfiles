@@ -310,17 +310,19 @@ endif
 " :match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
 " :highlight MyCommentsColor   guibg=Orange
 " :2mat      MyCommentsColor   /\/\/.*/
+"" highlighting debug information
 " :highlight ErrorsColor       guibg=Red
-" :3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf/
+" :3mat      ErrorsColor       /fmt\.Println\|fmt\.Printf\|\/\/.*fmt.*\|TODO.*/
 "
 " I switch off because it is have a bug
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-:hi Normal ctermbg=LightGrey ctermfg=Black guifg=Black guibg=#FFFF71
+" main background color
+:hi Normal ctermbg=LightGrey  ctermfg=Black guifg=Black      guibg=#FFFF71
 
-
-
+" seach highlighting color
+:hi Search ctermbg=LightGreen ctermfg=Black guibg=LightGreen guifg=Black
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
@@ -421,10 +423,20 @@ endfunction
 function! GoBench()
 	:execute "normal ifunc Benchmark(b *testing.B){\n\t\n}\<Esc>kA"
 endfunction
+function! GoComHign()
+	let @/ ="\/\/.*"
+	:set hlsearch
+endfunction
+function! GoDebHign()
+	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*"
+	:set hlsearch
+endfunction
 
 function Menu()
 	call SimpleMenu([
 		\ ['v', 'Golang version'                           , 'GoVersion'  ],
+		\ ['c', 'Go: comments'                             , 'GoComHign'  ],
+		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'  ],
 		\ ['m', 'Go: func main'                            , 'GoMain'     ],
 		\ ['r', 'Go: defer recover'                        , 'GoDeferRec' ],
 		\ ['b', 'Go: benchmark'                            , 'GoBench'    ],
