@@ -179,9 +179,9 @@ if has("unix")
 "	set guifont=Go\ Mono\ 9
 "	set guifont=Fira\ Mono\ 10
 "	set guifont=ProggyCleanTT\ 12
-"	set guifont=Go\ Mono\ Bold\ 11
+	set guifont=Go\ Mono\ Bold\ 11
 "	set guifont=Fira\ Mono\ Bold\ 10
-	set guifont=Ubuntu\ Mono\ Bold\ 10
+"	set guifont=Ubuntu\ Mono\ Bold\ 10
 elseif has("win32")
 	set guifont=Fira_Mono:h9:b
 endif
