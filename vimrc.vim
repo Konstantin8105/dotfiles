@@ -212,7 +212,7 @@ endif
 
 " --------------------------
 " Start GUI by default
-:gui
+" :gui
 " --------------------------
 
 set shiftwidth=4	" indenting is 4 spaces
