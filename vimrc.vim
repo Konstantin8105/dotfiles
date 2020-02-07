@@ -53,7 +53,7 @@ map <C-F2> :TagbarToggle<CR>
 " gc  - comment/uncomment in visual mode
 
 " Vim-Go
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 " Plugin 'AndrewRadev/splitjoin.vim'
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
@@ -82,12 +82,12 @@ autocmd BufEnter * silent! lcd %:p:h
 """""""""""""""""""""
 
 " vim-go
-let g:go_autodetect_gopath   = 1
-let g:go_version_warning     = 0
-let g:go_list_type           = "quickfix"
+" let g:go_autodetect_gopath   = 1
+" let g:go_version_warning     = 0
+" let g:go_list_type           = "quickfix"
 " let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
 " let g:go_metalinter_deadline = "20s" " Gometalinter timeout
-let g:go_info_mode = 'gocode'
+" let g:go_info_mode = 'gocode'
 
 " Gocode for autocompletion
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
@@ -235,6 +235,8 @@ set laststatus=2	" to display the status line always
 :let $LANG='en_US.UTF-8'
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
 " --------------------------
 
 
@@ -242,7 +244,6 @@ set laststatus=2	" to display the status line always
 " If in Insert, Replace or Visual mode put a message on the last line.
 :set showmode
 " --------------------------
-
 
 
 " --------------------------
@@ -294,13 +295,6 @@ elseif has("win32")
 	set directory=c:\Temp
 	set undodir  =c:\Temp
 endif
-
-
-" Hide scrollbar
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
 
 " Let`s create a big memory for vim
 " Max 2000000
