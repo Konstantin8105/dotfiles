@@ -380,8 +380,29 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 "
-:iabbrev  fn      fmt.Println()<Esc>i
-:iabbrev  errn    if err != nil{<CR><Tab><CR>}<Esc>k
+" Example:
+"   :ab hh	hello
+" 		"hh<Space>" is expanded to "hello<Space>"
+"		"hh<C-]>" is expanded to "hello"
+"
+:iabbrev  fn         fmt.Println()<Esc>i
+:iabbrev  errn       if err != nil{<CR><Tab><CR>}<Esc>k
+:iabbrev  gomain     func main() {<CR><CR>}<Esc>kA
+:iabbrev  godefer    defer func(){<CR>if err := recover(); err != nil {<CR><CR>}<CR>}()<Esc>kkA
+:iabbrev  gotest     func Test(t *testing.T){<CR><CR>}<Esc>kA
+:iabbrev  goexample  func Example(){<CR>// Output:<CR>}<Esc>kkA
+:iabbrev  gobench    func Benchmark(b *testing.B){<CR>for n := 0; n < b.N; n++ {<CR><CR>}<CR>}<Esc>kkkA
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go doc
+"
+:command! -nargs=+ GoDoc call GoDoc(<f-args>)
+function! GoDoc(pack)
+	:let pack = a:pack
+	:cexpr system('go doc -all ' . pack)
+	:copen
+endfunction
+        
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
 "
@@ -410,24 +431,12 @@ function! GoLinter()
 	:cexpr system('golangci-lint run .')
 	:copen
 endfunction
+function! GoImports()
+	:cexpr system('goimports -w .')
+	:copen
+endfunction
 function! SayMyName()
 	echo 'Hello, Konstantin'
-endfunction
-
-function! GoMain()
-	:execute "normal ifunc main() {\n\t\n}\<Esc>kA"
-endfunction
-function! GoDeferRec()
-	:execute "normal idefer func(){\n\tif err := recover(); err != nil {\n\t\n}\n}()\<Esc>kkA"
-endfunction
-function! GoTestFunc()
-	:execute "normal ifunc Test(t *testing.T){\n\t\n}\<Esc>kA"
-endfunction
-function! GoExampleFunc()
-	:execute "normal ifunc Example(){\n\t// Output:\n}\<Esc>kA"
-endfunction
-function! GoBench()
-	:execute "normal ifunc Benchmark(b *testing.B){\n\t\n}\<Esc>kA"
 endfunction
 function! GoComHign()
 	let @/ ="\/\/.*"
@@ -442,12 +451,8 @@ function Menu()
 	call SimpleMenu([
 		\ ['v', 'Golang version'                           , 'GoVersion'     ],
 		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
+		\ ['i', 'Go: imports'                              , 'GoImports'     ],
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
-		\ ['m', 'Go: func main'                            , 'GoMain'        ],
-		\ ['r', 'Go: defer recover'                        , 'GoDeferRec'    ],
-		\ ['b', 'Go: benchmark'                            , 'GoBench'       ],
-		\ ['t', 'Go: test function'                        , 'GoTestFunc'    ],
-		\ ['e', 'Go: example function'                     , 'GoExampleFunc' ],
 		\ ['l', 'Go: linter'                               , 'GoLinter'      ],
 		\ ['z', 'Say my name '                             , 'SayMyName'     ]
 	\ ])
