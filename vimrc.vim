@@ -426,8 +426,7 @@ function! GoLinter()
 	:copen
 endfunction
 function! GoImports()
-	:cexpr system('goimports -w .')
-	:copen
+	:!goimports -w .
 endfunction
 function! SayMyName()
 	echo 'Hello, Konstantin'
