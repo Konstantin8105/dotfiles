@@ -26,7 +26,8 @@ Plugin 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
 
 " Ark vim
-Plugin 'mileszs/ack.vim'
+" No need
+" Plugin 'mileszs/ack.vim'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
@@ -84,8 +85,8 @@ autocmd BufEnter * silent! lcd %:p:h
 let g:go_autodetect_gopath   = 1
 let g:go_version_warning     = 0
 let g:go_list_type           = "quickfix"
-let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
-let g:go_metalinter_deadline = "20s" " Gometalinter timeout
+" let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
+" let g:go_metalinter_deadline = "20s" " Gometalinter timeout
 let g:go_info_mode = 'gocode'
 
 " Gocode for autocompletion
@@ -328,8 +329,10 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
 "
-:nnoremap <silent> gc :call ToggleComment()<CR>
-:vnoremap <silent> gc :call ToggleComment()<CR>
+:nnoremap <silent> gcc :call ToggleComment()<CR>
+:nnoremap <silent> gcu :call ToggleUnComment()<CR>
+:vnoremap <silent> gcc :call ToggleComment()<CR>
+:vnoremap <silent> gcu :call ToggleUnComment()<CR>
 let s:comment_map = { 
     \   "c": '\/\/',
     \   "cpp": '\/\/',
@@ -356,24 +359,22 @@ let s:comment_map = {
     \   "vim": '"',
     \   "tex": '%',
     \ }
+function! ToggleUnComment()
+    let comment_leader = '\/\/'
+	if has_key(s:comment_map, &filetype)
+        let comment_leader = s:comment_map[&filetype]
+	end
+	if getline('.') =~ "^\\s*" . comment_leader . " " 
+	    " Uncomment the line
+	    execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
+	end
+endfunction
 function! ToggleComment()
     let comment_leader = '\/\/'
 	if has_key(s:comment_map, &filetype)
         let comment_leader = s:comment_map[&filetype]
 	end
-    if getline('.') =~ "^\\s*" . comment_leader . " " 
-        " Uncomment the line
-        execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
-    else 
-        if getline('.') =~ "^\\s*" . comment_leader
-            " Uncomment the line
-            execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
-        else
-            " Comment the line
-            " execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
-			:execute "silent s/^/" . comment_leader . " /"
-        end
-    end
+    :execute "silent s/^/" . comment_leader . " /"
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -405,8 +406,9 @@ endfunction
 function! GoVersion()
 	execute "!go version"
 endfunction
-function! GoFilelists()
-	execute "!ls -la *.go"
+function! GoLinter()
+	:cexpr system('golangci-lint run .')
+	:copen
 endfunction
 function! SayMyName()
 	echo 'Hello, Konstantin'
@@ -420,6 +422,9 @@ function! GoDeferRec()
 endfunction
 function! GoTestFunc()
 	:execute "normal ifunc Test(t *testing.T){\n\t\n}\<Esc>kA"
+endfunction
+function! GoExampleFunc()
+	:execute "normal ifunc Example(){\n\t// Output:\n}\<Esc>kA"
 endfunction
 function! GoBench()
 	:execute "normal ifunc Benchmark(b *testing.B){\n\t\n}\<Esc>kA"
@@ -435,15 +440,16 @@ endfunction
 
 function Menu()
 	call SimpleMenu([
-		\ ['v', 'Golang version'                           , 'GoVersion'  ],
-		\ ['c', 'Go: comments'                             , 'GoComHign'  ],
-		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'  ],
-		\ ['m', 'Go: func main'                            , 'GoMain'     ],
-		\ ['r', 'Go: defer recover'                        , 'GoDeferRec' ],
-		\ ['b', 'Go: benchmark'                            , 'GoBench'    ],
-		\ ['t', 'Go: test function'                        , 'GoTestFunc' ],
-		\ ['l', 'Golang files in present folder'           , 'GoFilelists'],
-		\ ['z', 'Say my name '                             , 'SayMyName'  ]
+		\ ['v', 'Golang version'                           , 'GoVersion'     ],
+		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
+		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
+		\ ['m', 'Go: func main'                            , 'GoMain'        ],
+		\ ['r', 'Go: defer recover'                        , 'GoDeferRec'    ],
+		\ ['b', 'Go: benchmark'                            , 'GoBench'       ],
+		\ ['t', 'Go: test function'                        , 'GoTestFunc'    ],
+		\ ['e', 'Go: example function'                     , 'GoExampleFunc' ],
+		\ ['l', 'Go: linter'                               , 'GoLinter'      ],
+		\ ['z', 'Say my name '                             , 'SayMyName'     ]
 	\ ])
 endfunction
 
