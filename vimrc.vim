@@ -115,10 +115,6 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
-
-""" Like I understood - no need
-"set number                      " Show line numbers
-
 set showcmd                     " Show me what I'm typing
 set noswapfile                  " Don't use swapfile
 " set nobackup                    " Don't create annoying backup files
@@ -202,8 +198,8 @@ endif
 
 " --------------------------
 " Left numbering of lines
-":set relativenumber
-:set number
+" :set relativenumber  " No need in my point of view  
+" :set number          " No need in my point of view  
 " --------------------------
 
 " --------------------------
@@ -419,7 +415,7 @@ function! SimpleMenu(options)
 endfunction
 
 function! GoVersion()
-	execute "!go version"
+	:!go version
 endfunction
 function! GoLinter()
 	:cexpr system('golangci-lint run .')
@@ -436,7 +432,7 @@ function! GoComHign()
 	:set hlsearch
 endfunction
 function! GoDebHign()
-	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*"
+	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*\\|\/\*"
 	:set hlsearch
 endfunction
 
