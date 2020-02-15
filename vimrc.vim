@@ -432,7 +432,7 @@ function! GoComHign()
 	:set hlsearch
 endfunction
 function! GoDebHign()
-	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*\\|\/\*"
+	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*\\"
 	:set hlsearch
 endfunction
 
