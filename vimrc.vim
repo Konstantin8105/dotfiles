@@ -112,10 +112,10 @@ set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically read changed files
 set autoindent                  " Enabile Autoindent
 set backspace=indent,eol,start  " Makes backspace key more powerful.
-set incsearch                   " Shows the match while typing
+" set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
-set showcmd                     " Show me what I'm typing
+" set showcmd                     " Show me what I'm typing
 set noswapfile                  " Don't use swapfile
 " set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
@@ -124,7 +124,7 @@ set autowrite                   " Automatically save before :next, :make etc.
 set hidden                      " Buffer should still exist if window is closed
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 set noshowmatch                 " Do not show matching brackets by flickering
-set noshowmode                  " We show the mode with airline or lightline
+" set noshowmode                  " We show the mode with airline or lightline
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not it begins with upper case
 set completeopt=menu,menuone    " Show popup menu, even if there is one entry
@@ -165,7 +165,7 @@ nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 " Searching
 :set ignorecase		" case insensitive
-:set incsearch		" show match as search proceeds
+" :set incsearch		" show match as search proceeds
 :set hlsearch		" search highlighting
 " --------------------------
 
@@ -193,7 +193,7 @@ endif
 
 " --------------------------
 " Display incomplete commands.
-:set showcmd
+" :set showcmd
 " --------------------------
 
 " --------------------------
@@ -238,7 +238,7 @@ set laststatus=2	" to display the status line always
 
 " --------------------------
 " If in Insert, Replace or Visual mode put a message on the last line.
-:set showmode
+" :set showmode
 " --------------------------
 
 
