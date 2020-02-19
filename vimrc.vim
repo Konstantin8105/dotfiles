@@ -422,7 +422,7 @@ function! GoLinter()
 	:copen
 endfunction
 function! GoImports()
-	:!goimports -w .
+	:execute "!goimports -w %:p"
 endfunction
 function! SayMyName()
 	echo 'Hello, Konstantin'
