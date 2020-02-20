@@ -146,7 +146,7 @@ syntax off
 
 " ==== Yellow vertical borders ====
 :set fillchars+=stlnc:-,vert:\|
-:hi vertsplit  guibg=Yellow ctermfg=DarkGrey guifg=DarkGrey ctermbg=Yellow
+:hi vertsplit  guibg=Yellow ctermfg=DarkGrey guifg=DarkGrey ctermbg=LightYellow
 
 
 " --------------------------
@@ -247,9 +247,9 @@ set laststatus=2	" to display the status line always
 " The advantage of having the status line displayed always
 :set laststatus=2
 " colors for windows not on focus
-:hi statuslineNc guibg=Black ctermfg=LightYellow guifg=Yellow     ctermbg=Black
-" colors for windows on focus
-:hi statusline   guibg=Black ctermfg=LightGreen  guifg=LightGreen ctermbg=Black
+:hi statuslineNc guibg=Black guifg=Yellow     ctermbg=Black  ctermfg=LightYellow 
+" colors for windows on focus                                
+:hi statusline   guibg=Black guifg=LightGreen ctermbg=Black  ctermfg=LightGreen  
 " default text
 set statusline=%t                                " file name
 set statusline+=%m                               " file is modify
@@ -311,10 +311,10 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " main background color
-:hi Normal ctermbg=LightGrey  ctermfg=Black guifg=Black      guibg=#FFFF71
+:hi Normal ctermbg=White ctermfg=Black guifg=Black      guibg=#FFFF71
 
 " seach highlighting color
-:hi Search ctermbg=LightGreen ctermfg=Black guibg=LightGreen guifg=Black
+:hi Search ctermbg=Green  ctermfg=Black guibg=LightGreen guifg=Black
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
