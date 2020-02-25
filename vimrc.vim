@@ -235,13 +235,6 @@ set laststatus=2	" to display the status line always
 :set guioptions-=L  "remove left-hand scroll bar
 " --------------------------
 
-
-" --------------------------
-" If in Insert, Replace or Visual mode put a message on the last line.
-" :set showmode
-" --------------------------
-
-
 " --------------------------
 "  Formatting statusline
 " The advantage of having the status line displayed always
@@ -267,34 +260,18 @@ set statusline+=\ Buf:%n                         " Buffer number
 "set statusline+=\ [%b][0x%B]\                   " ASCII and byte code under cursor
 " --------------------------
 
-"Purple
-set guicursor=n-v-c:ver50-Cursor
-set guicursor+=i:ver50-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
-set guicursor+=i-ci:ver25
-
+" purple gui cursor
+" set guicursor=n-v-c:ver50-Cursor
+" set guicursor+=i:ver50-iCursor
+" set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
+" set guicursor+=i-ci:ver25
+" no need 
 
 " === Unmap
 : map Q <Nop>
 " =========
 
-" Backup
-" ------
-set backup
-if has("unix")
-	set backupdir=~/temp
-	set directory=~/temp
-	set undodir  =~/temp
-elseif has("win32")
-	set backupdir=c:\Temp
-	set directory=c:\Temp
-	set undodir  =c:\Temp
-endif
-
-" Let`s create a big memory for vim
-" Max 2000000
-:set maxmempattern=100000 " KBytes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
@@ -310,11 +287,31 @@ endif
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Backup
+" ------
+set backup
+if has("unix")
+	set backupdir=~/temp
+	set directory=~/temp
+	set undodir  =~/temp
+elseif has("win32")
+	set backupdir=c:\Temp
+	set directory=c:\Temp
+	set undodir  =c:\Temp
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " main background color
 :hi Normal ctermbg=White ctermfg=Black guifg=Black      guibg=#FFFF71
 
 " seach highlighting color
 :hi Search ctermbg=Green  ctermfg=Black guibg=LightGreen guifg=Black
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Let`s create a big memory for vim
+" Max 2000000
+:set maxmempattern=100000 " KBytes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
@@ -352,11 +349,11 @@ let s:comment_map = {
 function! ToggleUnComment()
     let comment_leader = '\/\/'
 	if has_key(s:comment_map, &filetype)
-        let comment_leader = s:comment_map[&filetype]
+        :let comment_leader = s:comment_map[&filetype]
 	end
-	if getline('.') =~ "^\\s*" . comment_leader . " " 
+	if getline('.') =~ "\\s*" . comment_leader . " "
 	    " Uncomment the line
-	    execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
+		:execute "silent s/\\(\\s*\\)" . comment_leader . " /\\1/"
 	end
 endfunction
 function! ToggleComment()
@@ -407,6 +404,9 @@ function! SimpleMenu(options)
 		echon choice[1]
 		echo ''
 	endfor
+	" add information text
+	call Information()
+	" return char from keyboard
 	let l:response = nr2char(getchar())
 	redraw!
 	if has_key(l:choice_map, l:response)
@@ -414,6 +414,15 @@ function! SimpleMenu(options)
 	endif
 endfunction
 
+function! Information()
+	echo ""
+	echo "Profiling( https://blog.golang.org/profiling-go-programs )"
+	echo "    go test -bench=. -benchmem -memprofile=mem.out -cpuprofile=cpu.out"
+	echo "    go tool pprof mem.out"
+	echo "    go tool pprof cpu.out"
+	echo ""
+	echo ""
+endfunction
 function! GoVersion()
 	:!go version
 endfunction
