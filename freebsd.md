@@ -26,3 +26,20 @@ sysrc snd_hda_load=yes
 `pkg install -y xfce-mixer`
 
 
+## Mate
+
+`nano /etc/rc.conf`
+
+
+Open the file and add following lines to it.
+```
+dbus_enable=” YES” 
+hald_enable=” YES” 
+slim_enable=” YES” 
+```
+
+`nano .xinitrc`
+`exec mate-session`
+
+
+
