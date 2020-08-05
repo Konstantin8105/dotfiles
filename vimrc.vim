@@ -427,7 +427,15 @@ function! GoVersion()
 	:!go version
 endfunction
 function! GoLinter()
-	:cexpr system('golangci-lint run .')
+	:cgetexpr system('golangci-lint run .')
+	:copen
+endfunction
+function! GoLinterStatic()
+	:cgetexpr system('staticcheck -tests .')
+	:copen
+endfunction
+function! GoLinterRevive()
+	:cgetexpr system('revive .')
 	:copen
 endfunction
 function! GoImports()
@@ -444,6 +452,10 @@ function! GoDebHign()
 	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*\\"
 	:set hlsearch
 endfunction
+function! GoTags()
+	:cgetexpr system("grep -n -e '^func' -e '^var' -e '^const' -e '^type' " . expand('%:p') )
+	:copen
+endfunction
 
 function Menu()
 	call SimpleMenu([
@@ -452,6 +464,9 @@ function Menu()
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['l', 'Go: linter'                               , 'GoLinter'      ],
+		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
+		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
+		\ ['t', 'Go: tags by grep'                         , 'GoTags'        ],
 		\ ['z', 'Say my name '                             , 'SayMyName'     ]
 	\ ])
 endfunction
