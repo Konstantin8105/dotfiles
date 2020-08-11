@@ -25,10 +25,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
 
-" Ark vim
-" No need
-" Plugin 'mileszs/ack.vim'
-
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
@@ -46,52 +42,12 @@ elseif has("win32")
 endif
 map <C-F2> :TagbarToggle<CR>
 
-" TComment
-" Plugin 'tomtom/tcomment_vim'
-" Note: see https://github.com/tomtom/tcomment_vim
-" gcc - comment/uncomment current line
-" gc  - comment/uncomment in visual mode
-
-" Vim-Go
-" Plugin 'fatih/vim-go'
-" Plugin 'AndrewRadev/splitjoin.vim'
-
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
 if has('unnamedplus')
   set clipboard^=unnamed
   set clipboard^=unnamedplus
 endif
-
-""""""""""""""""""""""
-"      Mappings      "
-""""""""""""""""""""""
-
-" Set leader shortcut to a comma ','. By default it's the backslash
-let mapleader = ","
-
-" Act like D and C
-nnoremap Y y$
-
-" Enter automatically into the files directory
-autocmd BufEnter * silent! lcd %:p:h
-
-
-"""""""""""""""""""""
-"      Plugins      "
-"""""""""""""""""""""
-
-" vim-go
-" let g:go_autodetect_gopath   = 1
-" let g:go_version_warning     = 0
-" let g:go_list_type           = "quickfix"
-" let g:go_metalinter_enabled  = ['vet', 'golint', 'errcheck', 'staticcheck', 'deadcode' , 'misspell', 'gosec']
-" let g:go_metalinter_deadline = "20s" " Gometalinter timeout
-" let g:go_info_mode = 'gocode'
-
-" Gocode for autocompletion
-Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
