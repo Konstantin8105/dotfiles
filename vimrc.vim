@@ -36,8 +36,8 @@ let g:deoplete#enable_at_startup = 1
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
-let g:NERDTreeDirArrowExpandable  = '+'
-let g:NERDTreeDirArrowCollapsible = '|'
+let g:NERDTreeDirArrowExpandable  = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
@@ -49,6 +49,8 @@ elseif has("win32")
 	:let g:tagbar_ctags_bin='Z:\Software\ctags58\ctags.exe'
 endif
 map <C-F2> :TagbarToggle<CR>
+:let g:tagbar_case_insensitive = 1
+:let g:tagbar_iconchars = ['▶', '▼']
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
