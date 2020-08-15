@@ -21,9 +21,17 @@ call vundle#begin()
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" neocomplete 
-Plugin 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup = 1
+" Completion
+" Plugin 'Shougo/neocomplete.vim'
+" let g:neocomplete#enable_at_startup = 1
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
@@ -72,7 +80,7 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
 " set showcmd                     " Show me what I'm typing
-set noswapfile                  " Don't use swapfile
+" set noswapfile                  " Don't use swapfile
 " set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
 set splitbelow                  " Horizontal windows should split to bottom
@@ -246,16 +254,16 @@ set statusline+=\ Buf:%n                         " Buffer number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backup
 " ------
-set backup
-if has("unix")
-	set backupdir=~/temp
-	set directory=~/temp
-	set undodir  =~/temp
-elseif has("win32")
-	set backupdir=c:\Temp
-	set directory=c:\Temp
-	set undodir  =c:\Temp
-endif
+" set backup
+" if has("unix")
+" 	set backupdir=~/temp
+" 	set directory=~/temp
+" 	set undodir  =~/temp
+" elseif has("win32")
+" 	set backupdir=c:\Temp
+" 	set directory=c:\Temp
+" 	set undodir  =c:\Temp
+" endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " main background color
@@ -342,7 +350,7 @@ endfunction
 :command! -nargs=+ GoDoc call GoDoc(<f-args>)
 function! GoDoc(pack)
 	:let pack = a:pack
-	:cexpr system('go doc -all ' . pack)
+	:cexpr system('go doc -u -all ' . pack)
 	:copen
 endfunction
         
