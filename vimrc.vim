@@ -371,8 +371,11 @@ endfunction
 " Generate dictionary by:
 " github.com/Konstantin8105/gvd
 "
-:set iskeyword+=. " add point for dictionary work
-:set dictionary+=$HOME/dotfiles/gostd.txt
+" Use <CTRL-X><CTRL-K> or <F3> for using
+"
+:set iskeyword+=.                          " add point for dictionary work
+:set dictionary+=$HOME/dotfiles/gostd.txt  " location of dictionary
+:imap <F3> <C-X><C-K>
         
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
