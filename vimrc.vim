@@ -356,6 +356,23 @@ function! GoDoc(pack)
 	:cexpr system('go doc -u -all ' . pack)
 	:copen
 endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go dictionary
+"
+" result of command : :set iskeyword?
+" iskeyword=@,48-57,_,192-255
+" add point in list
+"
+"	Each file should contain a list of words.  This can be one word per line,
+"	or several words per line, separated by non-keyword characters
+"	(white space is preferred).  Maximum line length is 510 bytes.
+"
+" Generate dictionary by:
+" github.com/Konstantin8105/gvd
+"
+:set iskeyword+=. " add point for dictionary work
+:set dictionary+=$HOME/dotfiles/gostd.txt
         
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
