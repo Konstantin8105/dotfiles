@@ -83,8 +83,8 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
 " set showcmd                     " Show me what I'm typing
-" set noswapfile                  " Don't use swapfile
-" set nobackup                    " Don't create annoying backup files
+set noswapfile                  " Don't use swapfile
+set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
 set splitbelow                  " Horizontal windows should split to bottom
 set autowrite                   " Automatically save before :next, :make etc.
