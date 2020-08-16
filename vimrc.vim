@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
 let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
