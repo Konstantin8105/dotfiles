@@ -24,19 +24,21 @@ Plugin 'VundleVim/Vundle.vim'
 " Completion
 " Plugin 'Shougo/neocomplete.vim'
 " let g:neocomplete#enable_at_startup = 1
-if has('nvim')
-  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
+if has("unix")
+	if has('nvim')
+	  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	else
+	  Plugin 'Shougo/deoplete.nvim'
+	  Plugin 'roxma/nvim-yarp'
+	  Plugin 'roxma/vim-hug-neovim-rpc'
+	endif
+	let g:deoplete#enable_at_startup = 1
 endif
-let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
-let g:NERDTreeDirArrowExpandable  = '▶'
+let g:NERDTreeDirArrowExpandable  = '>'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
@@ -51,7 +53,7 @@ elseif has("win32")
 endif
 map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
-:let g:tagbar_iconchars = ['▶', '▼']
+:let g:tagbar_iconchars = ['>', '▼']
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -147,7 +149,7 @@ if has("unix")
 	set guifont=Fira\ Mono\ Bold\ 10
 "	set guifont=Ubuntu\ Mono\ Bold\ 10
 elseif has("win32")
-	set guifont=Fira_Mono:h9:b
+	set guifont=Fira_Mono:h11:b
 endif
 " --------------------------
 
