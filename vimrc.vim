@@ -39,6 +39,7 @@ let g:NERDTreeHighlightCursorline =  1
 let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeShowHidden=1
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
