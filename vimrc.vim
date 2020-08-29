@@ -40,7 +40,7 @@ Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
 let g:NERDTreeDirArrowExpandable  = '>'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeNodeDelimiter = "\u00a0"
+" let g:NERDTreeNodeDelimiter = " "
 let g:NERDTreeShowHidden=1
 
 " Tagbar
@@ -214,7 +214,8 @@ set laststatus=2	" to display the status line always
 " colors for windows on focus                                
 :hi statusline   guibg=Black guifg=LightGreen ctermbg=Black  ctermfg=LightGreen  
 " default text
-set statusline=%t                                " file name
+set statusline=
+set statusline+=%t                               " file name
 set statusline+=%m                               " file is modify
 "set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
 "set statusline+=%{&ff}]                         " file format
