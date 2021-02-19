@@ -147,7 +147,8 @@ if has("unix")
 "	set guifont=Fira\ Mono\ 10
 "	set guifont=ProggyCleanTT\ 12
 "	set guifont=Go\ Mono\ Bold\ 11
-	set guifont=Fira\ Mono\ Bold\ 10
+"	set guifont=Fira\ Mono\ Bold\ 10
+	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 10
 elseif has("win32")
 	set guifont=Fira_Mono:h11:b
@@ -444,8 +445,14 @@ function! GoDebHign()
 	:set hlsearch
 endfunction
 function! GoTags()
-	:cgetexpr system("grep -n -e '^func' -e '^var' -e '^const' -e '^type' " . expand('%:p') )
+	":cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
+	":vimgrep /^func\|^var\|^const\|^type/g %
+	":vimgrep /^func\|^var\|^const\|^type/g  %:p:h/*.go
+	:vimgrep /^func\|^var\|^const\|^type/g  ./*.go
 	:copen
+endfunction
+function! GoNote()
+	:vsplit ~/dotfiles/go.doc
 endfunction
 
 function Menu()
@@ -455,6 +462,7 @@ function Menu()
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['l', 'Go: linter'                               , 'GoLinter'      ],
+		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
 		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
 		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
 		\ ['t', 'Go: tags by grep'                         , 'GoTags'        ],
