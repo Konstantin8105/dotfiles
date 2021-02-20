@@ -396,8 +396,6 @@ function! SimpleMenu(options)
 		echon choice[1]
 		echo ''
 	endfor
-	" add information text
-	call Information()
 	" return char from keyboard
 	let l:response = nr2char(getchar())
 	redraw!
@@ -406,15 +404,6 @@ function! SimpleMenu(options)
 	endif
 endfunction
 
-function! Information()
-	echo ""
-	echo "Profiling( https://blog.golang.org/profiling-go-programs )"
-	echo "    go test -bench=. -benchmem -memprofile=mem.out -cpuprofile=cpu.out"
-	echo "    go tool pprof mem.out"
-	echo "    go tool pprof cpu.out"
-	echo ""
-	echo ""
-endfunction
 function! GoVersion()
 	:!go version
 endfunction
@@ -445,10 +434,18 @@ function! GoDebHign()
 	:set hlsearch
 endfunction
 function! GoTags()
-	":cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
+	" :p			/home/mool/vim/src/version.c
+	" :p:.				       src/version.c
+	" :p:~				 ~/vim/src/version.c
+	" :h				       src
+	" :p:h			/home/mool/vim/src
+	":let present_file expand("%:p:h")
+	:cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
+	":cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:h').expand('/*.go'))
 	":vimgrep /^func\|^var\|^const\|^type/g %
 	":vimgrep /^func\|^var\|^const\|^type/g  %:p:h/*.go
-	:vimgrep /^func\|^var\|^const\|^type/g  ./*.go
+	":vimgrep /^func\|^var\|^const\|^type/g  ./*.go
+	":vimgrep /^func\|^var\|^const\|^type/g  %:h/*.go
 	:copen
 endfunction
 function! GoNote()
