@@ -447,7 +447,7 @@ function! GoTags()
 	" :h				       src
 	" :p:h			/home/mool/vim/src
 	":let present_file expand("%:p:h")
-	:cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
+	:cgetexpr system("grep -n -w -e '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
 	":cgetexpr system("grep -n -e -w '^func' -e '^var' -e '^const' -e '^type' ".expand('%:h').expand('/*.go'))
 	":vimgrep /^func\|^var\|^const\|^type/g %
 	":vimgrep /^func\|^var\|^const\|^type/g  %:p:h/*.go
