@@ -17,6 +17,13 @@ elseif has("win32")
 	set rtp+=$HOME\vimfiles\bundle\Vundle.vim
 endif
 
+" netrw 
+let g:netrw_liststyle    = 3  " thin, long, wide and tree
+                         " 1  " long, one file per line with file size and time stamp
+let g:netrw_banner       = 0  " removing the banner
+"let g:netrw_browse_split = 2  " open files in a new vertical split
+let g:netrw_winsize      = 25 " the width of the directory explorer
+
 call vundle#begin()
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
@@ -449,7 +456,7 @@ function! GoTags()
 	:copen
 endfunction
 function! GoNote()
-	:vsplit ~/dotfiles/go.doc
+	:vsplit ~/dotfiles/note.md
 endfunction
 
 function Menu()
