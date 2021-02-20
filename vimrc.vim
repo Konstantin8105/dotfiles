@@ -415,15 +415,15 @@ function! GoVersion()
 	:!go version
 endfunction
 function! GoLinter()
-	:cgetexpr system('golangci-lint run .')
+	:cgetexpr system('golangci-lint run '.expand('%:p:h').expand('/*.go'))
 	:copen
 endfunction
 function! GoLinterStatic()
-	:cgetexpr system('staticcheck -tests .')
+	:cgetexpr system('staticcheck -tests '.expand('%:p:h').expand('/*.go'))
 	:copen
 endfunction
 function! GoLinterRevive()
-	:cgetexpr system('revive .')
+	:cgetexpr system('revive '.expand('%:p:h').expand('/*.go'))
 	:copen
 endfunction
 function! GoImports()
