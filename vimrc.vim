@@ -254,8 +254,9 @@ set statusline+=\ Buf:%n                         " Buffer number
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab visible
-:set list
-:set lcs=tab:\|\ " last chararacter is space
+" not comfortable
+" :set list
+" :set lcs=tab:\|\ " last chararacter is space
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
