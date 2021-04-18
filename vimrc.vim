@@ -253,6 +253,17 @@ set statusline+=\ Buf:%n                         " Buffer number
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tab visible
+:set list
+:set lcs=tab:\|\ " last chararacter is space
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Folding
+:set foldmethod=indent
+:set foldignore=
+:set foldlevelstart=20
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight comments
 " :highlight MyParenColor      guibg=White
 " :match     MyParenColor      /\".*\"\|\`.*\`\|\'.*\'/
@@ -385,6 +396,8 @@ endfunction
 "
 " Use <CTRL-X><CTRL-K> or <F3> for using
 "
+:set complete+=k
+:set complete+=kspell
 :set iskeyword+=.                          " add point for dictionary work
 :set dictionary+=$HOME/dotfiles/gostd.txt  " location of dictionary
 :imap <F3> <C-X><C-K>
