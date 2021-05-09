@@ -3,7 +3,6 @@
 " --------------------------
 " 1. Install Vundle
 " 3. In vim :PluginInstall
-" 4. In vim :GoInstallBinaries
 " ?? install go-tags"
 
 " set the runtime path to include Vundle and initialize
@@ -28,19 +27,8 @@ call vundle#begin()
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" Completion
-" Plugin 'Shougo/neocomplete.vim'
-" let g:neocomplete#enable_at_startup = 1
-if has("unix")
-	if has('nvim')
-	  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	else
-	  Plugin 'Shougo/deoplete.nvim'
-	  Plugin 'roxma/nvim-yarp'
-	  Plugin 'roxma/vim-hug-neovim-rpc'
-	endif
-	let g:deoplete#enable_at_startup = 1
-endif
+Plugin 'vim-scripts/AutoComplPop'
+
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
@@ -156,6 +144,7 @@ if has("unix")
 "	set guifont=JetBrainsMono\ ExtraBold\ 14
 "	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
 	set guifont=PT\ Mono\ Bold\ 13
+"	set guifont=PT\ Mono\ 13
 elseif has("win32")
 	set guifont=Fira_Mono:h11:b
 endif
@@ -397,11 +386,10 @@ endfunction
 " Use <CTRL-X><CTRL-K> or <F3> for using
 "
 :set complete+=k
-:set complete+=kspell
+:set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
 :set dictionary+=$HOME/dotfiles/gostd.txt  " location of dictionary
 :imap <F3> <C-X><C-K>
-        
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
 "
@@ -427,18 +415,29 @@ endfunction
 function! GoVersion()
 	:!go version
 endfunction
+
 function! GoLinter()
-	:cgetexpr system('golangci-lint run '.expand('%:p:h').expand('/*.go'))
+	:cd %:p:h
+	:cgetexpr system('golangci-lint run')
 	:copen
 endfunction
 function! GoLinterStatic()
-	:cgetexpr system('staticcheck -tests '.expand('%:p:h').expand('/*.go'))
+	:cd %:p:h
+	:cgetexpr system('staticcheck')
 	:copen
 endfunction
 function! GoLinterRevive()
-	:cgetexpr system('revive '.expand('%:p:h').expand('/*.go'))
+	:cd %:p:h
+	:cgetexpr system('revive')
 	:copen
 endfunction
+function! GoLinterUpdate()
+	:cd ~
+	:!go get github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	:!go install honnef.co/go/tools/cmd/staticcheck@latest
+	:!go get -u github.com/mgechev/revive
+endfunction
+
 function! GoImports()
 	:execute "!goimports -w %:p"
 endfunction
@@ -480,10 +479,11 @@ function Menu()
 		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
-		\ ['l', 'Go: linter'                               , 'GoLinter'      ],
 		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
+		\ ['l', 'Go: linter : golangci-lint'               , 'GoLinter'      ],
 		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
 		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
+	    \ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
 		\ ['t', 'Go: tags by grep'                         , 'GoTags'        ],
 		\ ['z', 'Say my name '                             , 'SayMyName'     ]
 	\ ])
