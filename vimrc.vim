@@ -137,13 +137,15 @@ nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 " Fonts
 if has("unix")
+	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
+"	set guifont=Ubuntu\ Mono\ 14
 "	set guifont=JetBrainsMono\ ExtraBold\ 14
 "	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
-	set guifont=PT\ Mono\ Bold\ 13
+"	set guifont=PT\ Mono\ Bold\ 13
 "	set guifont=PT\ Mono\ 13
 elseif has("win32")
 	set guifont=Fira_Mono:h11:b
