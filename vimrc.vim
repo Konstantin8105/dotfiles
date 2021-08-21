@@ -473,7 +473,7 @@ function! GoTags()
 	:copen
 endfunction
 function! GoNote()
-	:vsplit ~/dotfiles/note.md
+	:vsplit $DOTFILES/note.md
 endfunction
 
 function Menu()

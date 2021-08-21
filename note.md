@@ -6,6 +6,11 @@ go tool pprof mem.out
 go tool pprof cpu.out
 ```
 
+`web`       - run in browser
+`top5 -cum` - run top of runtime
+
+
+
 # Coverage
 
 ```
