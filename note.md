@@ -22,4 +22,8 @@ go tool cover -html=coverage.out
 
 git remote set-url origin git@github.com:Konstantin8105/dotfiles.git
 
+# Show all errors
 
+```
+go build -gcflags="-e"
+```
