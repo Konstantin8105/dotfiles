@@ -137,8 +137,9 @@ endif
 " --------------------------
 " Fonts
 if has("unix")
+    set guifont=Inconsolata\ Bold\ 13
 "	set guifont=Go\ Mono\ 10
-	set guifont=Go\ Mono\ 14
+"	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
@@ -392,6 +393,7 @@ endfunction
 :set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
 :set dictionary+=$HOME/dotfiles/gostd.txt  " location of dictionary
+:set dictionary+=/media/pi/usb/dotfiles/gostd.txt  " location of dictionary
 :imap <F3> <C-X><C-K>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
@@ -473,7 +475,7 @@ function! GoTags()
 	:copen
 endfunction
 function! GoNote()
-	:vsplit ~/dotfiles/note.md
+	:vsplit $DOTFILES/note.md
 endfunction
 function! Tagbar()
 	:TagbarToggle
