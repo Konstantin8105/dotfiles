@@ -47,7 +47,7 @@ elseif has("win32")
 	" == DON`T USE FORDER WITH SPACE
 	:let g:tagbar_ctags_bin='Z:\Software\ctags58\ctags.exe'
 endif
-map <C-F2> :TagbarToggle<CR>
+" map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
 :let g:tagbar_iconchars = ['>', '▼']
 
@@ -124,7 +124,7 @@ elseif has("win32")
   autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
 endif
 :let NERDTreeShowBookmarks=1
-nmap <C-F1> :NERDTreeToggle<CR>
+" nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 
 " --------------------------
@@ -137,8 +137,8 @@ nmap <C-F1> :NERDTreeToggle<CR>
 " --------------------------
 " Fonts
 if has("unix")
-	set guifont=Go\ Mono\ 10
-"	set guifont=Go\ Mono\ 14
+"	set guifont=Go\ Mono\ 10
+	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
@@ -475,9 +475,20 @@ endfunction
 function! GoNote()
 	:vsplit ~/dotfiles/note.md
 endfunction
+function! Tagbar()
+	:TagbarToggle
+endfunction
+function! NERD()
+	:NERDTreeToggle
+endfunction
+function! Tagbar()
+	:TagbarToggle
+endfunction
 
 function Menu()
 	call SimpleMenu([
+		\ ['1', 'NERD'                                     , 'NERD'          ],
+		\ ['2', 'Tagbar'                                   , 'Tagbar'        ],
 		\ ['v', 'Golang version'                           , 'GoVersion'     ],
 		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
