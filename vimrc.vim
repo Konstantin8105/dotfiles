@@ -392,8 +392,7 @@ endfunction
 :set complete+=k
 :set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
-:set dictionary+=$HOME/dotfiles/gostd.txt  " location of dictionary
-:set dictionary+=/media/pi/usb/dotfiles/gostd.txt  " location of dictionary
+:set dictionary+=~/dotfiles/gostd.txt  " location of dictionary
 :imap <F3> <C-X><C-K>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
@@ -475,7 +474,7 @@ function! GoTags()
 	:copen
 endfunction
 function! GoNote()
-	:vsplit $DOTFILES/note.md
+	:vsplit ~/dotfiles/note.md
 endfunction
 function! Tagbar()
 	:TagbarToggle
