@@ -34,7 +34,7 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeHighlightCursorline =  1
 let g:NERDTreeDirArrowExpandable  = '>'
-let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeDirArrowCollapsible = 'V'
 " let g:NERDTreeNodeDelimiter = " "
 let g:NERDTreeShowHidden=1
 
@@ -49,7 +49,8 @@ elseif has("win32")
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
-:let g:tagbar_iconchars = ['>', '▼']
+:let g:tagbar_iconchars = ['+', '-']
+:let g:tagbar_ctags_options = ['NONE']
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
