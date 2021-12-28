@@ -138,7 +138,8 @@ endif
 " --------------------------
 " Fonts
 if has("unix")
-    set guifont=Inconsolata\ Bold\ 13
+    set guifont=JetBrains\ Mono\ Bold\ 12
+"   set guifont=Inconsolata\ Bold\ 13
 "	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
