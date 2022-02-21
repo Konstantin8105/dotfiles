@@ -27,3 +27,9 @@ git remote set-url origin git@github.com:Konstantin8105/dotfiles.git
 ```
 go build -gcflags="-e"
 ```
+
+# Diff tools
+
+```
+git difftool --tool=meld
+```
