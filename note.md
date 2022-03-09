@@ -33,3 +33,23 @@ go build -gcflags="-e"
 ```
 git difftool --tool=meld
 ```
+
+# Prepare new linux distib
+
+Applications:
+```
+sudo apt install git vim-gtk octave scilab meld ctags gnuplot
+sudo snap install go --classic
+```
+Fonts:
+```
+mkdir ~/.fonts
+cp ~/dotfiles/FiraFont/ttf/*.ttf ~/.fonts
+cp ~/dotfiles/GolangFont/*.ttf   ~/.fonts
+cp ~/dotfiles/ptmono/*.ttf       ~/.fonts
+```
+Vim:
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
