@@ -38,7 +38,7 @@ git difftool --tool=meld
 
 Applications:
 ```
-sudo apt install git vim-gtk octave scilab meld ctags gnuplot
+sudo apt install git vim-gtk octave scilab meld ctags gnuplot clang gparted cvs sqlite3 inkscape htop 
 sudo snap install go --classic
 ```
 Fonts:
