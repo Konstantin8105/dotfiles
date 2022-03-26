@@ -141,7 +141,7 @@ if has("unix")
 "   set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
 "	set guifont=JetBrainsMono\ ExtraBold\ 14
 "   set guifont=Inconsolata\ Bold\ 13
-	set guifont=Go\ Mono\ 10
+	set guifont=Go\ Mono\ Bold\ 10
 "	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Fira\ Mono\ Medium\ 14
@@ -440,6 +440,7 @@ function! GoLinterRevive()
 endfunction
 function! GoLinterUpdate()
 	:cd ~
+	:!go install golang.org/x/tools/cmd/goimports@latest
 	:!go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	:!go install honnef.co/go/tools/cmd/staticcheck@latest
 	:!go install github.com/mgechev/revive@latest
