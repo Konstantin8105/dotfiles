@@ -53,3 +53,8 @@ Vim:
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
+GRUB FOR HP Z800:
+```
+acpi=off
+update-grub
+```
