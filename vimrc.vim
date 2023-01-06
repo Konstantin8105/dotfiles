@@ -42,6 +42,7 @@ let g:NERDTreeShowHidden=1
 Plugin 'majutsushi/tagbar'
 if has("unix")
 	":!echo "add ctags"
+	:let g:tagbar_ctags_bin='ctags'
 elseif has("win32")
 	" == If you have the space inside way, then it is FAIL
 	" == DON`T USE FORDER WITH SPACE
@@ -49,6 +50,8 @@ elseif has("win32")
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
+:let g:tagbar_show_balloon = 0
+:let g:tagbar_no_status_line = 1
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
 
