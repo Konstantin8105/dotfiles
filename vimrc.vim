@@ -423,6 +423,11 @@ function! GoVersion()
 	:!go version
 endfunction
 
+function! GoLint()
+	:cd %:p:h
+	:cgetexpr system('golint ./...')
+	:copen
+endfunction
 function! GoLinter()
 	:cd %:p:h
 	:cgetexpr system('golangci-lint run')
@@ -444,6 +449,7 @@ function! GoLinterUpdate()
 	:!go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	:!go install honnef.co/go/tools/cmd/staticcheck@latest
 	:!go install github.com/mgechev/revive@latest
+    :!go install golang.org/x/lint/golint@latest
 endfunction
 
 function! GoImports()
@@ -500,6 +506,7 @@ function Menu()
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
 		\ ['l', 'Go: linter : golangci-lint'               , 'GoLinter'      ],
+		\ ['m', 'Go: linter : golint'                      , 'GoLint'      ],
 		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
 		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
 	    \ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
