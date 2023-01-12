@@ -42,6 +42,7 @@ let g:NERDTreeShowHidden=1
 Plugin 'majutsushi/tagbar'
 if has("unix")
 	":!echo "add ctags"
+	:let g:tagbar_ctags_bin='ctags'
 elseif has("win32")
 	" == If you have the space inside way, then it is FAIL
 	" == DON`T USE FORDER WITH SPACE
@@ -49,6 +50,8 @@ elseif has("win32")
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
+:let g:tagbar_show_balloon = 0
+:let g:tagbar_no_status_line = 1
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
 
@@ -141,13 +144,15 @@ if has("unix")
 "   set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
 "	set guifont=JetBrainsMono\ ExtraBold\ 14
 "   set guifont=Inconsolata\ Bold\ 13
-	set guifont=Go\ Mono\ Bold\ 10
+"	set guifont=Go\ Mono\ Bold\ 10
+"	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Fira\ Mono\ Medium\ 14
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
 "	set guifont=Ubuntu\ Mono\ 14
+	set guifont=Ubuntu\ Mono\ 11
 "	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
 "	set guifont=PT\ Mono\ Bold\ 13
 "	set guifont=PT\ Mono\ 13
@@ -272,6 +277,9 @@ set statusline+=\ Buf:%n                         " Buffer number
 " I switch off because it is have a bug
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Balloon off
+:set ballooneval
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backup

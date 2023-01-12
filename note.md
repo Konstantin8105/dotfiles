@@ -38,7 +38,7 @@ git difftool --tool=meld
 
 Applications:
 ```
-sudo apt install git vim-gtk octave scilab meld ctags gnuplot clang gparted cvs sqlite3 inkscape htop curl ssh wine
+sudo apt install git vim-gtk octave scilab meld ctags gnuplot clang gparted cvs sqlite3 inkscape htop mysql-server mercurial
 sudo snap install go --classic
 ```
 Fonts:
@@ -47,6 +47,7 @@ mkdir ~/.fonts
 cp ~/dotfiles/FiraFont/ttf/*.ttf ~/.fonts
 cp ~/dotfiles/GolangFont/*.ttf   ~/.fonts
 cp ~/dotfiles/ptmono/*.ttf       ~/.fonts
+cp ~/dotfiles/Proggy/*.ttf       ~/.fonts
 ```
 Vim:
 ```
