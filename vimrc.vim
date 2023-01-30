@@ -152,7 +152,7 @@ if has("unix")
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
 "	set guifont=Ubuntu\ Mono\ 14
-	set guifont=Ubuntu\ Mono\ 11
+	set guifont=Ubuntu\ Mono\ 12
 "	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
 "	set guifont=PT\ Mono\ Bold\ 13
 "	set guifont=PT\ Mono\ 13
