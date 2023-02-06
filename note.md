@@ -48,6 +48,7 @@ cp ~/dotfiles/FiraFont/ttf/*.ttf ~/.fonts
 cp ~/dotfiles/GolangFont/*.ttf   ~/.fonts
 cp ~/dotfiles/ptmono/*.ttf       ~/.fonts
 cp ~/dotfiles/Proggy/*.ttf       ~/.fonts
+cp ~/dotfiles/Terminus/*.ttf     ~/.fonts
 ```
 Vim:
 ```
