@@ -122,7 +122,7 @@ if has("unix")
   " $HOME
   " /home/konstantin/Documents/SVNserver/Secret
 elseif has("win32")
-  autocmd vimenter * NERDTree Z:\SVNSERVER_CODE\Calculation
+  autocmd vimenter * NERDTree Z:\
 endif
 :let NERDTreeShowBookmarks=1
 " nmap <C-F1> :NERDTreeToggle<CR>
