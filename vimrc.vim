@@ -42,6 +42,7 @@ let g:NERDTreeShowHidden=1
 Plugin 'majutsushi/tagbar'
 if has("unix")
 	":!echo "add ctags"
+	:let g:tagbar_ctags_bin='ctags'
 elseif has("win32")
 	" == If you have the space inside way, then it is FAIL
 	" == DON`T USE FORDER WITH SPACE
@@ -49,8 +50,40 @@ elseif has("win32")
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
+:let g:tagbar_show_balloon = 0
+:let g:tagbar_no_status_line = 1
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
+
+":let g:tagbar_type_go = {
+"    \ 'ctagstype' : 'go',
+"    \ 'kinds'     : [
+"        \ 'p:package',
+"        \ 'i:imports:1',
+"        \ 'c:constants',
+"        \ 'v:variables',
+"        \ 't:types',
+"        \ 'n:interfaces',
+"        \ 'w:fields',
+"        \ 'e:embedded',
+"        \ 'm:methods',
+"        \ 'r:constructor',
+"        \ 'f:functions'
+"    \ ],
+"    \ 'sro' : '.',
+"    \ 'kind2scope' : {
+"        \ 't' : 'ctype',
+"        \ 'n' : 'ntype'
+"    \ },
+"    \ 'scope2kind' : {
+"        \ 'ctype' : 't',
+"        \ 'ntype' : 'n'
+"    \ },
+"    \ 'ctagsbin'  : 'gotags',
+"    \ 'ctagsargs' : '-sort -silent'
+"\ }
+
+
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -141,13 +174,16 @@ if has("unix")
 "   set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
 "	set guifont=JetBrainsMono\ ExtraBold\ 14
 "   set guifont=Inconsolata\ Bold\ 13
-	set guifont=Go\ Mono\ Bold\ 10
+"	set guifont=Go\ Mono\ Bold\ 10
+ 	set guifont=Terminus\ (TTF)\ Medium\ 12
+"	set guifont=Go\ Mono\ 10
 "	set guifont=Go\ Mono\ 14
 "	set guifont=Fira\ Mono\ Bold\ 14
 "	set guifont=Fira\ Mono\ Medium\ 14
 "	set guifont=Noto\ Mono\ Bold\ 14
 "	set guifont=Ubuntu\ Mono\ Bold\ 16
 "	set guifont=Ubuntu\ Mono\ 14
+"	set guifont=Ubuntu\ Mono\ 11
 "	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
 "	set guifont=PT\ Mono\ Bold\ 13
 "	set guifont=PT\ Mono\ 13
@@ -272,6 +308,9 @@ set statusline+=\ Buf:%n                         " Buffer number
 " I switch off because it is have a bug
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Balloon off
+:set ballooneval
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backup
@@ -423,6 +462,11 @@ function! GoVersion()
 	:!go version
 endfunction
 
+function! GoLint()
+	:cd %:p:h
+	:cgetexpr system('golint ./...')
+	:copen
+endfunction
 function! GoLinter()
 	:cd %:p:h
 	:cgetexpr system('golangci-lint run')
@@ -444,6 +488,8 @@ function! GoLinterUpdate()
 	:!go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	:!go install honnef.co/go/tools/cmd/staticcheck@latest
 	:!go install github.com/mgechev/revive@latest
+    :!go install golang.org/x/lint/golint@latest
+	:!go install github.com/jstemmer/gotags@latest
 endfunction
 
 function! GoImports()
@@ -500,6 +546,7 @@ function Menu()
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
 		\ ['l', 'Go: linter : golangci-lint'               , 'GoLinter'      ],
+		\ ['m', 'Go: linter : golint'                      , 'GoLint'      ],
 		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
 		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
 	    \ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
