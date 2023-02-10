@@ -1,7 +1,7 @@
 # Profiling( https://blog.golang.org/profiling-go-programs )
 
 ```
-go test -bench=. -benchmem -memprofile=mem.out -cpuprofile=cpu.out
+go test -run=Bench -bench=. -benchmem -memprofile=mem.out -cpuprofile=cpu.out
 go tool pprof mem.out
 go tool pprof cpu.out
 ```
