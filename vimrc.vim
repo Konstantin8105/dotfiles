@@ -435,7 +435,8 @@ endfunction
 :set complete+=k
 :set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
-:set dictionary+=~/dotfiles/gostd.txt  " location of dictionary
+:set dictionary=~/dotfiles/gostd.txt  " location of dictionary
+":set dictionary+=*.go  " location of dictionary
 :imap <F3> <C-X><C-K>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
