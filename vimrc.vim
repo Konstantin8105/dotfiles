@@ -432,7 +432,7 @@ endfunction
 "
 " Use <CTRL-X><CTRL-K> or <F3> for using
 "
-:set complete+=k
+":set complete+=k
 :set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
 :set dictionary+=~/dotfiles/gostd.txt  " location of dictionary
