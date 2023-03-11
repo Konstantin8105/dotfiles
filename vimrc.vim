@@ -519,7 +519,7 @@ function! SayMyName()
 	echo 'Hello, Konstantin'
 endfunction
 function! GoComHign()
-	let @/ ="\/\/.*\\|.*\.go"
+	let @/ ="\/\/.*\\|.*\.go$"
 	:set hlsearch
 endfunction
 function! GoDebHign()
