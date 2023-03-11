@@ -519,11 +519,11 @@ function! SayMyName()
 	echo 'Hello, Konstantin'
 endfunction
 function! GoComHign()
-	let @/ ="\/\/.*"
+	let @/ ="\/\/.*\\|.*\.go"
 	:set hlsearch
 endfunction
 function! GoDebHign()
-	let @/ ="fmt\.Println.*\\|fmt\.Printf.*\\|TODO.*\\|\/\/.*fmt.*\\"
+	let @/ ="fmt\.Print.*\\|TODO.*\\|\/\/.*fmt.*\\|DEBUG.*"
 	:set hlsearch
 endfunction
 function! GoTags()
