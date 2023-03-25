@@ -30,7 +30,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/AutoComplPop'
 
 " Menu
-Plugin 'skywind3000/vim-quickui'
+" Plugin 'skywind3000/vim-quickui'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
@@ -287,20 +287,20 @@ set statusline+=\ Buf:%n                         " Buffer number
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " clear all the menus
-call quickui#menu#reset()
-
+" call quickui#menu#reset()
+"
 " script inside %{...} will be evaluated and expanded in the string
-call quickui#menu#install("&Option", [
-			\ ['Set &Spell %{&spell? "Off":"On"}', 'set spell!'],
-			\ ['Set &Cursor Line %{&cursorline? "Off":"On"}', 'set cursorline!'],
-			"\ ['Set &Paste %{&paste? "Off":"On"}', 'set paste!'],
-			\ ])
+" call quickui#menu#install("&Option", [
+"			\ ['Set &Spell %{&spell? "Off":"On"}', 'set spell!'],
+"			\ ['Set &Cursor Line %{&cursorline? "Off":"On"}', 'set cursorline!'],
+"			"\ ['Set &Paste %{&paste? "Off":"On"}', 'set paste!'],
+"			\ ])
 
 " enable to display tips in the cmdline
-let g:quickui_show_tip = 1
+" let g:quickui_show_tip = 1
 
 " hit space twice to open menu
-noremap <space><space> :call quickui#menu#open()<cr>
+" noremap <space><space> :call quickui#menu#open()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab visible
