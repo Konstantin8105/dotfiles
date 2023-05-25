@@ -451,10 +451,11 @@ endfunction
 " Use <CTRL-X><CTRL-K> or <F3> for using
 "
 ":set complete+=k
-:set complete+=spell
+":set complete+=spell
 :set iskeyword+=.                          " add point for dictionary work
 :set dictionary=~/dotfiles/gostd.txt  " location of dictionary
 ":set dictionary+=*.go  " location of dictionary
+:set suffixes=*.go
 :imap <F3> <C-X><C-K>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
