@@ -15,7 +15,13 @@ go tool pprof cpu.out
 
 ```
 go test -coverprofile=coverage.out
-go tool cover -html=coverage.out
+go tool cover -html=coverage.out -o=coverage.html
+firefox coverage.html &
+```
+
+```
+go test -coverprofile=coverage.out ./...
+
 ```
 
 # Add ssh to git repository
