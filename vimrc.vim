@@ -456,6 +456,7 @@ endfunction
 :set dictionary=~/dotfiles/gostd.txt  " location of dictionary
 ":set dictionary+=*.go  " location of dictionary
 :set suffixes=*.go
+:set wildignore=*.exe,testdata/*
 :imap <F3> <C-X><C-K>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create menu
