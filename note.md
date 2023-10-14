@@ -1,9 +1,15 @@
 # Profiling( https://blog.golang.org/profiling-go-programs )
 
 ```
+sudo apt install graphviz gv
+
 go test -run=Bench -bench=. -benchmem -memprofile=mem.out -cpuprofile=cpu.out
+
 go tool pprof mem.out
 go tool pprof cpu.out
+
+go tool pprof -http :9999 -edgefraction 0 -nodefraction 0 -nodecount 100000 cpu.out
+go tool pprof -http :9999 -edgefraction 0 -nodefraction 0 -nodecount 100000 mem.out
 ```
 
 `web`       - run in browser
