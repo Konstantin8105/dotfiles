@@ -21,6 +21,7 @@ go tool pprof -http :9999 -edgefraction 0 -nodefraction 0 -nodecount 100000 mem.
 
 ```
 go test -coverprofile=coverage.out
+go tool cover -html=coverage.out 
 go tool cover -html=coverage.out -o=coverage.html
 firefox coverage.html &
 ```
