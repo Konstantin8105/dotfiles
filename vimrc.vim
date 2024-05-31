@@ -29,6 +29,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-scripts/AutoComplPop'
 
+"VIM-GO
+Plugin 'fatih/vim-go'
+
+
 " Menu
 " Plugin 'skywind3000/vim-quickui'
 
