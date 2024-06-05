@@ -5,15 +5,15 @@
 " 3. In vim :PluginInstall
 " ?? install go-tags"
 
-" set the runtime path to include Vundle and initialize
-set nocompatible              " be iMproved, required
+" :set the runtime path to include Vundle and initialize
+:set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " ===================================================== "
 if has("unix")
-	set rtp+=~/.vim/bundle/Vundle.vim
+	:set rtp+=~/.vim/bundle/Vundle.vim
 elseif has("win32")
-	set rtp+=$HOME\vimfiles\bundle\Vundle.vim
+	:set rtp+=$HOME\vimfiles\bundle\Vundle.vim
 endif
 
 " netrw 
@@ -94,8 +94,8 @@ endif
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
 if has('unnamedplus')
-  set clipboard^=unnamed
-  set clipboard^=unnamedplus
+  :set clipboard^=unnamed
+  :set clipboard^=unnamedplus
 endif
 
 " All of your Plugins must be added before the following line
@@ -104,58 +104,78 @@ filetype plugin indent on    " required
 " ===================================================== "
 
 """"""""""""""""""""""
-"      Settings      "
+"      :settings      "
 """"""""""""""""""""""
-set nocompatible                " Enables us Vim specific features
+:set nocompatible                " Enables us Vim specific features
 filetype off                    " Reset filetype detection first ...
 filetype plugin indent on       " ... and enable filetype detection
-set ttyfast                     " Indicate fast terminal conn for faster redraw
-set ttymouse=xterm2             " Indicate terminal type for mouse codes
-set ttyscroll=3                 " Speedup scrolling
-set laststatus=2                " Show status line always
-set encoding=utf-8              " Set default encoding to UTF-8
-set autoread                    " Automatically read changed files
-set autoindent                  " Enabile Autoindent
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-" set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
-set noerrorbells                " No beeps
-" set showcmd                     " Show me what I'm typing
-set noswapfile                  " Don't use swapfile
-set nobackup                    " Don't create annoying backup files
-set splitright                  " Vertical windows should be split to right
-set splitbelow                  " Horizontal windows should split to bottom
-set autowrite                   " Automatically save before :next, :make etc.
-set hidden                      " Buffer should still exist if window is closed
-set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
-set noshowmatch                 " Do not show matching brackets by flickering
-" set noshowmode                  " We show the mode with airline or lightline
-set ignorecase                  " Search case insensitive...
-set smartcase                   " ... but not it begins with upper case
-set completeopt=menu,menuone    " Show popup menu, even if there is one entry
-set pumheight=10                " Completion window max size
-set nocursorcolumn              " Do not highlight column (speeds up highlighting)
-set nocursorline                " Do not highlight cursor (speeds up highlighting)
-set lazyredraw                  " Wait to redraw
+:set ttyfast                     " Indicate fast terminal conn for faster redraw
+:set ttymouse=xterm2             " Indicate terminal type for mouse codes
+:set ttyscroll=3                 " Speedup scrolling
+:set laststatus=2                " Show status line always
+:set encoding=utf-8              " :set default encoding to UTF-8
+:set autoread                    " Automatically read changed files
+:set autoindent                  " Enabile Autoindent
+:set backspace=indent,eol,start  " Makes backspace key more powerful.
+" :set incsearch                   " Shows the match while typing
+:set hlsearch                    " Highlight found searches
+:set noerrorbells                " No beeps
+" :set showcmd                     " Show me what I'm typing
+:set noswapfile                  " Don't use swapfile
+:set nobackup                    " Don't create annoying backup files
+:set splitright                  " Vertical windows should be split to right
+:set splitbelow                  " Horizontal windows should split to bottom
+:set autowrite                   " Automatically save before :next, :make etc.
+:set hidden                      " Buffer should still exist if window is closed
+:set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
+:set noshowmatch                 " Do not show matching brackets by flickering
+" :set noshowmode                  " We show the mode with airline or lightline
+:set ignorecase                  " Search case insensitive...
+:set smartcase                   " ... but not it begins with upper case
+:set completeopt=menu,menuone    " Show popup menu, even if there is one entry
+:set pumheight=10                " Completion window max size
+:set nocursorcolumn              " Do not highlight column (speeds up highlighting)
+:set nocursorline                " Do not highlight cursor (speeds up highlighting)
+:set lazyredraw                  " Wait to redraw
 
 
 " ===================================================== "
+
+
+"" colorsheme """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 syntax off
 :hi clear
 
 " colorscheme gomin
 
-" ==== Cursor color ====
-:hi  Cursor guifg=Black guibg=Blue ctermbg=Blue ctermfg=Black
-:hi iCursor guifg=White guibg=Red  ctermbg=Red  ctermfg=Black
-
-" ==== Yellow vertical borders ====
+" Cursor color
+:hi  Cursor      guifg=Black      guibg=Blue       ctermfg=Black       ctermbg=Blue 
+:hi iCursor      guifg=White      guibg=Red        ctermfg=Black       ctermbg=Red 
+                                                                                         
+" Yellow vertical borders
 :set fillchars+=stlnc:-,vert:\|
-:hi vertsplit  guibg=Yellow ctermfg=DarkGrey guifg=DarkGrey ctermbg=LightYellow
+:hi VertSplit    guifg=DarkGrey   guibg=Yellow     ctermfg=DarkGrey    ctermbg=LightYellow
 
+" Main background color
+:hi Normal       guifg=Black      guibg=#FFFF71    ctermfg=Black       ctermbg=White
+
+" Seach highlighting color
+:hi Search       guifg=Black      guibg=LightGreen ctermfg=Black       ctermbg=Green
+
+" Colors for windows not on focus
+:hi StatusLineNC guifg=Yellow     guibg=Black      ctermfg=LightYellow ctermbg=Black
+
+" Colors for windows on focus
+:hi StatusLine   guifg=LightGreen guibg=Black      ctermfg=LightGreen  ctermbg=Black       
+
+" Visual selection
+:hi Visual       guifg=Black      guibg=LightBlue  ctermfg=LightGreen  ctermbg=Black       
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " --------------------------
-" NERDTREE settings
+" NERDTREE :settings
 if has("unix")
   autocmd vimenter * NERDTree $GOPATH
   " $HOME
@@ -177,25 +197,25 @@ endif
 " --------------------------
 " Fonts
 if has("unix")
-"   set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
-"	set guifont=JetBrainsMono\ ExtraBold\ 14
-"   set guifont=Inconsolata\ Bold\ 13
-"	set guifont=Go\ Mono\ Bold\ 10
- 	set guifont=Terminus\ (TTF)\ Medium\ 12
-"	set guifont=Go\ Mono\ 10
-"	set guifont=Go\ Mono\ 14
-"	set guifont=Fira\ Mono\ Bold\ 14
-"	set guifont=Fira\ Mono\ Medium\ 14
-"	set guifont=Noto\ Mono\ Bold\ 14
-"	set guifont=Ubuntu\ Mono\ Bold\ 16
-"	set guifont=Ubuntu\ Mono\ 14
-"	set guifont=Ubuntu\ Mono\ 11
-"	set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
-"	set guifont=PT\ Mono\ Bold\ 13
-"	set guifont=PT\ Mono\ 13
+"   :set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
+"	:set guifont=JetBrainsMono\ ExtraBold\ 14
+"   :set guifont=Inconsolata\ Bold\ 13
+"	:set guifont=Go\ Mono\ Bold\ 10
+ 	:set guifont=Terminus\ (TTF)\ Medium\ 12
+"	:set guifont=Go\ Mono\ 10
+"	:set guifont=Go\ Mono\ 14
+"	:set guifont=Fira\ Mono\ Bold\ 14
+"	:set guifont=Fira\ Mono\ Medium\ 14
+"	:set guifont=Noto\ Mono\ Bold\ 14
+"	:set guifont=Ubuntu\ Mono\ Bold\ 16
+"	:set guifont=Ubuntu\ Mono\ 14
+"	:set guifont=Ubuntu\ Mono\ 11
+"	:set guifont=DejaVu\ Sans\ Mono\ Bold\ 14
+"	:set guifont=PT\ Mono\ Bold\ 13
+"	:set guifont=PT\ Mono\ 13
 elseif has("win32")
-"	set guifont=Fira_Mono:h11:b
-	set guifont=Terminus_(TTF):h12:qNONANTIALIASED
+"	:set guifont=Fira_Mono:h11:b
+	:set guifont=Terminus_(TTF):h12:qNONANTIALIASED
 endif
 " --------------------------
 
@@ -228,9 +248,9 @@ endif
 " :gui
 " --------------------------
 
-set shiftwidth=4	" indenting is 4 spaces
-set tabstop=4		" tabs are at proper location
-set laststatus=2	" to display the status line always
+:set shiftwidth=4	" indenting is 4 spaces
+:set tabstop=4		" tabs are at proper location
+:set laststatus=2	" to display the status line always
 
 " --------------------------
 " Highlight Line and Column in Vim
@@ -255,34 +275,30 @@ set laststatus=2	" to display the status line always
 "  Formatting statusline
 " The advantage of having the status line displayed always
 :set laststatus=2
-" colors for windows not on focus
-:hi statuslineNc guibg=Black guifg=Yellow     ctermbg=Black  ctermfg=LightYellow 
-" colors for windows on focus                                
-:hi statusline   guibg=Black guifg=LightGreen ctermbg=Black  ctermfg=LightGreen  
 " default text
-set statusline=
-set statusline+=%t                               " file name
-set statusline+=%m                               " file is modify
-"set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
-"set statusline+=%{&ff}]                         " file format
-"set statusline+=%y                              " filetype
-"set statusline+=%h                              " help file flag
-"set statusline+=%m                              " modified flag
-set statusline+=%r                               " read only flag
-set statusline+=%0*\ Mode:%{toupper(mode())}     " Current mode
-set statusline+=\ %=                             " align left
-set statusline+=Line:%l/%L "[%p%%]               " line X of Y [percent of file]
-set statusline+=\ Col:%c                         " current column
-set statusline+=\ Buf:%n                         " Buffer number
-"set statusline+=\ [%b][0x%B]\                   " ASCII and byte code under cursor
+:set statusline=
+:set statusline+=%t                               " file name
+:set statusline+=%m                               " file is modify
+" :set statusline+=[%{strlen(&fenc)?&fenc:'none'}, " file encoding
+" :set statusline+=%{&ff}]                         " file format
+" :set statusline+=%y                              " filetype
+" :set statusline+=%h                              " help file flag
+" :set statusline+=%m                              " modified flag
+:set statusline+=%r                               " read only flag
+:set statusline+=%0*\ Mode:%{toupper(mode())}     " Current mode
+:set statusline+=\ %=                             " align left
+:set statusline+=Line:%l/%L "[%p%%]               " line X of Y [percent of file]
+:set statusline+=\ Col:%c                         " current column
+:set statusline+=\ Buf:%n                         " Buffer number
+" :set statusline+=\ [%b][0x%B]\                   " ASCII and byte code under cursor
 " --------------------------
 
 " purple gui cursor
-" set guicursor=n-v-c:ver50-Cursor
-" set guicursor+=i:ver50-iCursor
-" set guicursor+=n-v-c:blinkon0
-" set guicursor+=i:blinkwait10
-" set guicursor+=i-ci:ver25
+" :set guicursor=n-v-c:ver50-Cursor
+" :set guicursor+=i:ver50-iCursor
+" :set guicursor+=n-v-c:blinkon0
+" :set guicursor+=i:blinkwait10
+" :set guicursor+=i-ci:ver25
 " no need 
 
 " === Unmap
@@ -338,23 +354,16 @@ set statusline+=\ Buf:%n                         " Buffer number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backup
 " ------
-" set backup
+" :set backup
 " if has("unix")
-" 	set backupdir=~/temp
-" 	set directory=~/temp
-" 	set undodir  =~/temp
+" 	:set backupdir=~/temp
+" 	:set directory=~/temp
+" 	:set undodir  =~/temp
 " elseif has("win32")
-" 	set backupdir=c:\Temp
-" 	set directory=c:\Temp
-" 	set undodir  =c:\Temp
+" 	:set backupdir=c:\Temp
+" 	:set directory=c:\Temp
+" 	:set undodir  =c:\Temp
 " endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" main background color
-:hi Normal ctermbg=White ctermfg=Black guifg=Black      guibg=#FFFF71
-
-" seach highlighting color
-:hi Search ctermbg=Green  ctermfg=Black guibg=LightGreen guifg=Black
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Let`s create a big memory for vim
@@ -525,7 +534,7 @@ function! SayMyName()
 	echo 'Hello, Konstantin'
 endfunction
 function! GoComHign()
-	let @/ ="\/\/.*\\|.*\.go$"
+	let @/ ="\/\/.*\\|.*\.go$\\|\\/\\*\\|\\*\\/"
 	:set hlsearch
 endfunction
 function! GoDebHign()
@@ -572,7 +581,7 @@ function Menu()
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
 		\ ['l', 'Go: linter : golangci-lint'               , 'GoLinter'      ],
-		\ ['m', 'Go: linter : golint'                      , 'GoLint'      ],
+		\ ['m', 'Go: linter : golint'                      , 'GoLint'        ],
 		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
 		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
 	    \ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
