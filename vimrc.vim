@@ -38,11 +38,12 @@ Plugin 'fatih/vim-go'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
-let g:NERDTreeHighlightCursorline =  1
-let g:NERDTreeDirArrowExpandable  = '>'
-let g:NERDTreeDirArrowCollapsible = 'V'
-" let g:NERDTreeNodeDelimiter = " "
-let g:NERDTreeShowHidden=1
+:let g:NERDTreeHighlightCursorline =  1
+:let g:NERDTreeDirArrowExpandable  = '>'
+:let g:NERDTreeDirArrowCollapsible = 'V'
+:let g:NERDTreeNodeDelimiter="\u00a0"
+:let g:NERDTreeShowHidden=1
+:let g:NERDTreeIgnore=['\.git$']
 
 " Tagbar
 Plugin 'majutsushi/tagbar'
@@ -200,8 +201,9 @@ if has("unix")
 "   :set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
 "	:set guifont=JetBrainsMono\ ExtraBold\ 14
 "   :set guifont=Inconsolata\ Bold\ 13
+	:set guifont=Go\ Mono\ 10
 "	:set guifont=Go\ Mono\ Bold\ 10
- 	:set guifont=Terminus\ (TTF)\ Medium\ 12
+" 	:set guifont=Terminus\ (TTF)\ Medium\ 12
 "	:set guifont=Go\ Mono\ 10
 "	:set guifont=Go\ Mono\ 14
 "	:set guifont=Fira\ Mono\ Bold\ 14
