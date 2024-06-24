@@ -30,7 +30,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/AutoComplPop'
 
 "VIM-GO
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 
 " Menu
 " Plugin 'skywind3000/vim-quickui'
@@ -349,7 +349,7 @@ endif
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Balloon off
-:set ballooneval
+":set ballooneval
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
