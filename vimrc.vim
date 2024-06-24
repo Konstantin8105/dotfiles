@@ -32,7 +32,6 @@ Plugin 'vim-scripts/AutoComplPop'
 "VIM-GO
 Plugin 'fatih/vim-go'
 
-
 " Menu
 " Plugin 'skywind3000/vim-quickui'
 
@@ -527,6 +526,8 @@ function! GoLinterUpdate()
 	:!go install github.com/mgechev/revive@latest
     :!go install golang.org/x/lint/golint@latest
 	:!go install github.com/jstemmer/gotags@latest
+    :GoInstallBinaries
+    :GoUpdateBinaries
 endfunction
 
 function! GoImports()
