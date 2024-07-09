@@ -32,6 +32,16 @@ Plugin 'vim-scripts/AutoComplPop'
 "VIM-GO
 Plugin 'fatih/vim-go'
 
+"let s:counter = 0
+"let s:timer = -1
+set mouse=a
+set ttymouse=sgr
+set balloonexpr=go#tool#DescribeBalloon()
+set balloondelay=250
+set ballooneval
+set balloonevalterm
+let g:go_doc_balloon = 1
+let go_def_mapping_enabled = 1
 
 " Menu
 " Plugin 'skywind3000/vim-quickui'
@@ -56,7 +66,7 @@ elseif has("win32")
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
-:let g:tagbar_show_balloon = 0
+:let g:tagbar_show_balloon = 1
 :let g:tagbar_no_status_line = 1
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
@@ -348,7 +358,7 @@ endif
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Balloon off
-:set ballooneval
+":set ballooneval
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -497,24 +507,14 @@ function! GoVersion()
 	:!go version
 endfunction
 
-function! GoLint()
-	:cd %:p:h
-	:cgetexpr system('golint ./...')
-	:copen
-endfunction
+"function! GoLint()
+"	:cd %:p:h
+"	:cgetexpr system('golint ./...')
+"	:copen
+"endfunction
 function! GoLinter()
 	:cd %:p:h
-	:cgetexpr system('golangci-lint run')
-	:copen
-endfunction
-function! GoLinterStatic()
-	:cd %:p:h
-	:cgetexpr system('staticcheck')
-	:copen
-endfunction
-function! GoLinterRevive()
-	:cd %:p:h
-	:cgetexpr system('revive')
+	:cgetexpr system('golint ./... > /tmp/e ; golangci-lint run >> /tmp/e ; staticcheck ./... >> /tmp/e ; revive ./... >> /tmp/e; cat /tmp/e \| sort \| uniq')
 	:copen
 endfunction
 function! GoLinterUpdate()
@@ -530,6 +530,12 @@ endfunction
 function! GoImports()
 	:execute "!goimports -w %:p"
 endfunction
+function! GoTest()
+	:cd %:p:h
+	:cgetexpr system("go test -v -cover ./...")
+	:copen
+endfunction
+
 function! SayMyName()
 	echo 'Hello, Konstantin'
 endfunction
@@ -541,23 +547,26 @@ function! GoDebHign()
 	let @/ ="fmt\.Print.*\\|TODO.*\\|\/\/.*fmt.*\\|DEBUG.*"
 	:set hlsearch
 endfunction
-function! GoTags()
-	" :p			/home/mool/vim/src/version.c
-	" :p:.				       src/version.c
-	" :p:~				 ~/vim/src/version.c
-	" :h				       src
-	" :p:h			/home/mool/vim/src
-	":let present_file expand("%:p:h")
-	:cd %:p:h
-	":!cd %:p:h
-	":cgetexpr system("grep -n -w -e '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
-	":cgetexpr system("grep -n -w -e '^func' -e '^var' -e '^const' -e '^type' ".expand('./*.go'))
-	":vimgrep /^func\|^var\|^const\|^type/g %
-	":vimgrep /^func\|^var\|^const\|^type/g  %:p:h/*.go
-	:vimgrep /^func\|^var\|^const\|^type/g  ./*.go
-	":vimgrep /^func\|^var\|^const\|^type/g  %:h/*.go
-	:copen
-endfunction
+
+"\ ['t', 'Go: tags by grep'                         , 'GoTags'        ],
+"function! GoTags()
+"	" :p			/home/mool/vim/src/version.c
+"	" :p:.				       src/version.c
+"	" :p:~				 ~/vim/src/version.c
+"	" :h				       src
+"	" :p:h			/home/mool/vim/src
+"	":let present_file expand("%:p:h")
+"	:cd %:p:h
+"	":!cd %:p:h
+"	":cgetexpr system("grep -n -w -e '^func' -e '^var' -e '^const' -e '^type' ".expand('%:p:h').expand('/*.go'))
+"	":cgetexpr system("grep -n -w -e '^func' -e '^var' -e '^const' -e '^type' ".expand('./*.go'))
+"	":vimgrep /^func\|^var\|^const\|^type/g %
+"	":vimgrep /^func\|^var\|^const\|^type/g  %:p:h/*.go
+"	:vimgrep /^func\|^var\|^const\|^type/g  ./*.go
+"	":vimgrep /^func\|^var\|^const\|^type/g  %:h/*.go
+"	:copen
+"endfunction
+
 function! GoNote()
 	:vsplit ~/dotfiles/note.md
 endfunction
@@ -570,6 +579,9 @@ endfunction
 function! Tagbar()
 	:TagbarToggle
 endfunction
+function! GoDefSplit()
+	:call go#def#Jump("split", 0)
+endfunction
 
 function Menu()
 	call SimpleMenu([
@@ -578,14 +590,12 @@ function Menu()
 		\ ['v', 'Golang version'                           , 'GoVersion'     ],
 		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
+		\ ['t', 'Go: test'                                 , 'GoTest'        ],
 		\ ['d', 'Go: comments : debug'                     , 'GoDebHign'     ],
 		\ ['n', 'My Golang notes'                          , 'GoNote'        ],
 		\ ['l', 'Go: linter : golangci-lint'               , 'GoLinter'      ],
-		\ ['m', 'Go: linter : golint'                      , 'GoLint'        ],
-		\ ['s', 'Go: linter : staticcheck'                 , 'GoLinterStatic'],
-		\ ['r', 'Go: linter : revive'                      , 'GoLinterRevive'],
-	    \ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
-		\ ['t', 'Go: tags by grep'                         , 'GoTags'        ],
+		\ ['u', 'Go: linter : update linters'              , 'GoLinterUpdate'],
+		\ ['s', 'Go: go-def-split'                         , 'GoDefSplit'    ],
 		\ ['z', 'Say my name '                             , 'SayMyName'     ]
 	\ ])
 endfunction
