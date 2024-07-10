@@ -600,10 +600,17 @@ function! GoDefSplit()
 	:call go#def#Jump("split", 0)
 endfunction
 
+
+function! Terminal()
+	:term bash
+endfunction
+
+
 function Menu()
 	call SimpleMenu([
 		\ ['1', 'NERD'                                     , 'NERD'          ],
 		\ ['2', 'Tagbar'                                   , 'Tagbar'        ],
+		\ ['3', 'Terminal'                                 , 'Terminal'      ],
 		\ ['v', 'Golang version'                           , 'GoVersion'     ],
 		\ ['c', 'Go: comments'                             , 'GoComHign'     ],
 		\ ['i', 'Go: imports'                              , 'GoImports'     ],
