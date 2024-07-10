@@ -27,10 +27,17 @@ call vundle#begin()
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
 
+
+
+" Completion
 Plugin 'vim-scripts/AutoComplPop'
+
 
 "VIM-GO
 Plugin 'fatih/vim-go'
+
+let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
+let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
 
 "let s:counter = 0
 "let s:timer = -1
@@ -155,7 +162,8 @@ filetype plugin indent on       " ... and enable filetype detection
 
 "" colorsheme """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-syntax off
+"syntax off
+syntax on
 :hi clear
 
 " colorscheme gomin
@@ -477,7 +485,7 @@ endfunction
 "
 ":set complete+=k
 ":set complete+=spell
-:set iskeyword+=.                          " add point for dictionary work
+:set iskeyword+=.                     " add point for dictionary work
 :set dictionary=~/dotfiles/gostd.txt  " location of dictionary
 ":set dictionary+=*.go  " location of dictionary
 :set suffixes=*.go
@@ -525,8 +533,10 @@ function! GoLinterUpdate()
 	:!go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	:!go install honnef.co/go/tools/cmd/staticcheck@latest
 	:!go install github.com/mgechev/revive@latest
-    :!go install golang.org/x/lint/golint@latest
+	:!go install golang.org/x/lint/golint@latest
 	:!go install github.com/jstemmer/gotags@latest
+	:!go install github.com/mdempsky/gocode@latest
+	:!go install golang.org/x/tools/gopls@latest
     :GoInstallBinaries
     :GoUpdateBinaries
 endfunction
