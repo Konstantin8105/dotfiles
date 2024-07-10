@@ -50,6 +50,9 @@ set balloonevalterm
 let g:go_doc_balloon = 1
 let go_def_mapping_enabled = 1
 
+:setlocal omnifunc=go#complete#Complete
+
+
 " Menu
 " Plugin 'skywind3000/vim-quickui'
 
@@ -150,7 +153,7 @@ filetype plugin indent on       " ... and enable filetype detection
 " :set noshowmode                  " We show the mode with airline or lightline
 :set ignorecase                  " Search case insensitive...
 :set smartcase                   " ... but not it begins with upper case
-:set completeopt=menu,menuone    " Show popup menu, even if there is one entry
+:set completeopt=menu,menuone,noinsert    " Show popup menu, even if there is one entry
 :set pumheight=10                " Completion window max size
 :set nocursorcolumn              " Do not highlight column (speeds up highlighting)
 :set nocursorline                " Do not highlight cursor (speeds up highlighting)
