@@ -165,8 +165,8 @@ filetype plugin indent on       " ... and enable filetype detection
 
 "" colorsheme """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"syntax off
-syntax on
+syntax off
+"syntax on
 :hi clear
 
 " colorscheme gomin
@@ -454,11 +454,12 @@ endfunction
 "
 :iabbrev  fn         fmt.Println()<Esc>i
 :iabbrev  errn       if err != nil{<CR><Tab><CR>}<Esc>k
-:iabbrev  gomain     func main() {<CR><CR>}<Esc>kA
+:iabbrev  gomain     package main<CR><CR>func main() {<CR><CR>}<Esc>kA
 :iabbrev  godefer    defer func(){<CR>if err := recover(); err != nil {<CR><CR>}<CR>}()<Esc>kkA
 :iabbrev  gotest     func Test(t *testing.T){<CR><CR>}<Esc>kA
 :iabbrev  goexample  func Example(){<CR>// Output:<CR>}<Esc>kkA
 :iabbrev  gobench    func Benchmark(b *testing.B){<CR>for n := 0; n < b.N; n++ {<CR><CR>}<CR>}<Esc>kkkA
+:iabbrev  gorecovery defer func(){<CR>if err := recover(); err != nil {<CR>err=errors.Join(err,<CR>fmt.Errorf("%v\n%s", r, string(debug.Stack())))<CR>}<CR>}()<Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go doc
