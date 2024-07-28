@@ -455,7 +455,7 @@ endfunction
 :iabbrev  fn         fmt.Println()<Esc>i
 :iabbrev  errn       if err != nil{<CR><Tab><CR>}<Esc>k
 :iabbrev  gomain     package main<CR><CR>func main() {<CR><CR>}<Esc>kA
-:iabbrev  godefer    defer func(){<CR>if err := recover(); err != nil {<CR><CR>}<CR>}()<Esc>kkA
+:iabbrev  godefer    defer func(){<CR>}()<Esc>kA
 :iabbrev  gotest     func Test(t *testing.T){<CR><CR>}<Esc>kA
 :iabbrev  goexample  func Example(){<CR>// Output:<CR>}<Esc>kkA
 :iabbrev  gobench    func Benchmark(b *testing.B){<CR>for n := 0; n < b.N; n++ {<CR><CR>}<CR>}<Esc>kkkA
