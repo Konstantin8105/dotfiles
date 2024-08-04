@@ -222,7 +222,8 @@ if has("unix")
 "   :set guifont=JetBrains\ Mono\ Bold\ 12 " I do not like ligatures
 "	:set guifont=JetBrainsMono\ ExtraBold\ 14
 "   :set guifont=Inconsolata\ Bold\ 13
-	:set guifont=Go\ Mono\ 10
+"	:set guifont=Go\ Mono\ 10
+	:set guifont=Cascadia\ Mono\ 10
 "	:set guifont=Go\ Mono\ Bold\ 10
 " 	:set guifont=Terminus\ (TTF)\ Medium\ 12
 "	:set guifont=Go\ Mono\ 10

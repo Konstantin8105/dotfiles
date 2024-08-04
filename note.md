@@ -62,6 +62,7 @@ cp ~/dotfiles/GolangFont/*.ttf   ~/.fonts
 cp ~/dotfiles/ptmono/*.ttf       ~/.fonts
 cp ~/dotfiles/Proggy/*.ttf       ~/.fonts
 cp ~/dotfiles/Terminus/*.ttf     ~/.fonts
+cp ~/dotfiles/CascadiaCode/*.ttf ~/.fonts
 ```
 Vim:
 ```
