@@ -239,7 +239,8 @@ if has("unix")
 "	:set guifont=PT\ Mono\ 13
 elseif has("win32")
 "	:set guifont=Fira_Mono:h11:b
-	:set guifont=Terminus_(TTF):h12:qNONANTIALIASED
+"	:set guifont=Terminus_(TTF):h12:qNONANTIALIASED
+	:set guifont=Cascadia_Mono_PL_Regular:h10
 endif
 " --------------------------
 
