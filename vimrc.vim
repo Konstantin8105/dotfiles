@@ -535,14 +535,14 @@ function! GoLinter()
 endfunction
 function! GoLinterUpdate()
 	:cd ~
-	:!go install golang.org/x/tools/cmd/goimports@latest
-	:!go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-	:!go install honnef.co/go/tools/cmd/staticcheck@latest
-	:!go install github.com/mgechev/revive@latest
-	:!go install golang.org/x/lint/golint@latest
-	:!go install github.com/jstemmer/gotags@latest
-	:!go install github.com/mdempsky/gocode@latest
-	:!go install golang.org/x/tools/gopls@latest
+	:!go install -v golang.org/x/tools/cmd/goimports@latest
+	:!go install -v github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	:!go install -v honnef.co/go/tools/cmd/staticcheck@latest
+	:!go install -v github.com/mgechev/revive@latest
+	:!go install -v golang.org/x/lint/golint@latest
+	:!go install -v github.com/jstemmer/gotags@latest
+	:!go install -v github.com/mdempsky/gocode@latest
+	:!go install -v golang.org/x/tools/gopls@latest
     :GoInstallBinaries
     :GoUpdateBinaries
 endfunction
