@@ -34,7 +34,7 @@ Plugin 'vim-scripts/AutoComplPop'
 
 
 "VIM-GO
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', {'version':'1.27'} "TODO update version 1.28 have bug
 
 let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
 let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
