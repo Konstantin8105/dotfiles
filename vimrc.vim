@@ -82,36 +82,6 @@ endif
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
 
-":let g:tagbar_type_go = {
-"    \ 'ctagstype' : 'go',
-"    \ 'kinds'     : [
-"        \ 'p:package',
-"        \ 'i:imports:1',
-"        \ 'c:constants',
-"        \ 'v:variables',
-"        \ 't:types',
-"        \ 'n:interfaces',
-"        \ 'w:fields',
-"        \ 'e:embedded',
-"        \ 'm:methods',
-"        \ 'r:constructor',
-"        \ 'f:functions'
-"    \ ],
-"    \ 'sro' : '.',
-"    \ 'kind2scope' : {
-"        \ 't' : 'ctype',
-"        \ 'n' : 'ntype'
-"    \ },
-"    \ 'scope2kind' : {
-"        \ 'ctype' : 't',
-"        \ 'ntype' : 'n'
-"    \ },
-"    \ 'ctagsbin'  : 'gotags',
-"    \ 'ctagsargs' : '-sort -silent'
-"\ }
-
-
-
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
 if has('unnamedplus')
