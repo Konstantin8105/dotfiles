@@ -34,23 +34,23 @@ Plugin 'vim-scripts/AutoComplPop'
 
 
 "VIM-GO
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go', {'version':'1.27'} "TODO update version 1.28 have bug
 
-let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
-let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
+"let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
+"let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
 
 "let s:counter = 0
 "let s:timer = -1
-set mouse=a
-set ttymouse=sgr
-set balloonexpr=go#tool#DescribeBalloon()
-set balloondelay=250
-set ballooneval
-set balloonevalterm
-let g:go_doc_balloon = 1
-let go_def_mapping_enabled = 1
+"set mouse=a
+"set ttymouse=sgr
+"set balloonexpr=go#tool#DescribeBalloon()
+"set balloondelay=250
+"set ballooneval
+"set balloonevalterm
+"let g:go_doc_balloon = 1
+"let go_def_mapping_enabled = 1
 
-:setlocal omnifunc=go#complete#Complete
+":setlocal omnifunc=go#complete#Complete
 
 
 " Menu
@@ -82,35 +82,7 @@ endif
 :let g:tagbar_iconchars = ['+', '-']
 :let g:tagbar_ctags_options = ['NONE']
 
-":let g:tagbar_type_go = {
-"    \ 'ctagstype' : 'go',
-"    \ 'kinds'     : [
-"        \ 'p:package',
-"        \ 'i:imports:1',
-"        \ 'c:constants',
-"        \ 'v:variables',
-"        \ 't:types',
-"        \ 'n:interfaces',
-"        \ 'w:fields',
-"        \ 'e:embedded',
-"        \ 'm:methods',
-"        \ 'r:constructor',
-"        \ 'f:functions'
-"    \ ],
-"    \ 'sro' : '.',
-"    \ 'kind2scope' : {
-"        \ 't' : 'ctype',
-"        \ 'n' : 'ntype'
-"    \ },
-"    \ 'scope2kind' : {
-"        \ 'ctype' : 't',
-"        \ 'ntype' : 'n'
-"    \ },
-"    \ 'ctagsbin'  : 'gotags',
-"    \ 'ctagsargs' : '-sort -silent'
-"\ }
-
-
+":set tags=tags;$HOME
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
