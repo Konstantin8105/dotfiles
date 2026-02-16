@@ -34,23 +34,23 @@ Plugin 'vim-scripts/AutoComplPop'
 
 
 "VIM-GO
-"Plugin 'fatih/vim-go', {'version':'1.27'} "TODO update version 1.28 have bug
+Plugin 'fatih/vim-go', {'version':'1.27'} "TODO update version 1.28 have bug
 
-"let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
-"let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
+let g:go_def_mode='gopls'  "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
+let g:go_info_mode='gopls' "https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimgo
 
-"let s:counter = 0
-"let s:timer = -1
-"set mouse=a
-"set ttymouse=sgr
-"set balloonexpr=go#tool#DescribeBalloon()
-"set balloondelay=250
-"set ballooneval
-"set balloonevalterm
-"let g:go_doc_balloon = 1
-"let go_def_mapping_enabled = 1
+let s:counter = 0
+let s:timer = -1
+set mouse=a
+set ttymouse=sgr
+set balloonexpr=go#tool#DescribeBalloon()
+set balloondelay=250
+set ballooneval
+set balloonevalterm
+let g:go_doc_balloon = 1
+let go_def_mapping_enabled = 1
 
-":setlocal omnifunc=go#complete#Complete
+:setlocal omnifunc=go#complete#Complete
 
 
 " Menu
