@@ -73,7 +73,12 @@ if has("unix")
 elseif has("win32")
 	" == If you have the space inside way, then it is FAIL
 	" == DON`T USE FORDER WITH SPACE
-	:let g:tagbar_ctags_bin='Z:\Software\ctags58\ctags.exe'
+
+	if filereadable("Z:\Software\ctags58\ctags.exe")
+		:let g:tagbar_ctags_bin='Z:\Software\ctags58\ctags.exe'
+	else
+		:let g:tagbar_ctags_bin='D:\app\ctags58\ctags.exe'
+	endif
 endif
 " map <C-F2> :TagbarToggle<CR>
 :let g:tagbar_case_insensitive = 1
